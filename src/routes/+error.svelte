@@ -1,9 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { title } from "$lib/store";
   import BiExclamationOctagon from "~icons/bi/exclamation-octagon";
-
-  title.set($page.status.toString());
 </script>
 
 <div class="flex flex-col items-center justify-center gap-2 h-full">

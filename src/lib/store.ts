@@ -11,8 +11,6 @@ const defaultSettings: Settings = {
   theme: "auto",
 };
 
-export const title: Writable<string> = writable("");
-
 // Initialize store with default settings
 export const settings: Writable<Settings> = writable(
   (storedSettings && JSON.parse(storedSettings)) || defaultSettings,
