@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .default-border {
+    @apply border border-[var(--fallback-bc,oklch(var(--bc)/0.2))];
+  }
+  .styled-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-base-300 hover:scrollbar-thumb-primary scrollbar-track-transparent;
+  }
+  .btn:focus,
+  .btn:focus-within {
+    box-shadow: none;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 2px;
+    outline-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+  }
+}
+
+html,
+body,
+#app,
+main {
+  @apply h-full;
+}
+
+html {
+  @apply styled-scrollbar;
+  font-family: "Figtree Variable", sans-serif;
+}
+
+::placeholder {
+  @apply !text-base-content/50;
+}
