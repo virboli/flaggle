@@ -17,6 +17,8 @@
   }
 
   let container: HTMLDivElement;
+  let input: HTMLInputElement;
+
   let query: string = "";
   let results: Country[] = [];
   let focused: boolean = false;
@@ -35,6 +37,13 @@
         focused = true;
       } else {
         focused = false;
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key.length === 1) {
+        input.focus();
+        focused = true;
       }
     });
   });
@@ -63,6 +72,7 @@
 <div bind:this={container} class="relative flex gap-2">
   <input
     bind:value={query}
+    bind:this={input}
     type="text"
     class="input input-bordered flex-1"
     placeholder="Guess a flag!"
