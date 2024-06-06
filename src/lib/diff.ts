@@ -16,6 +16,8 @@ export async function generateDiff(current: Country, target: Country) {
 
   const canvas = document.createElement("canvas");
   const ctx = canvas.getContext("2d");
+  canvas.width = 360;
+  canvas.height = 240;
   if (ctx && data) {
     ctx.putImageData(data, 0, 0);
   }
