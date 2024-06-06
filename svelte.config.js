@@ -14,6 +14,6 @@ export default {
     }),
   },
   paths: {
-    base: process.argv.includes("dev") ? "" : "/v4",
+    base: process.argv.includes("dev") ? "" : "/flaggle",
   },
 };
