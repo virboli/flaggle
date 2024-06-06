@@ -4,6 +4,8 @@
 
   import { generateDiff } from "$lib/diff";
 
+  import data from "$lib/data.json";
+
   interface Country {
     code: string;
     name: string;
@@ -13,7 +15,7 @@
     diff: string;
   }
 
-  let target = { code: "ph", name: "Philippines" };
+  let target = getRandomTarget();
 
   let items: Guess[] = [];
 
@@ -26,7 +28,19 @@
       diff: diff,
     };
     items = [guess, ...items];
-    console.log(guess);
+    checkWin(country);
+  }
+
+  function checkWin(guess: Country) {
+    if (target.code === guess.code) {
+      alert("you win!");
+    }
+  }
+
+  function getRandomTarget(): Country {
+    const max = data.length;
+    const index = Math.floor(Math.random() * max);
+    return data[index];
   }
 </script>
 
