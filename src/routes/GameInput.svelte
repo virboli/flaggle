@@ -69,7 +69,7 @@
   }
 </script>
 
-<div bind:this={container} class="relative flex gap-2 mb-4">
+<div bind:this={container} class="relative flex gap-2">
   <input
     bind:value={query}
     bind:this={input}
