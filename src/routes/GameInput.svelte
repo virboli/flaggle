@@ -81,7 +81,7 @@
   <button class="btn" on:click={submitQuery}>Guess</button>
   {#if results.length > 0 && focused}
     <div
-      class="absolute top-[calc(100%+1rem)] w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
+      class="absolute z-10 top-[calc(100%+1rem)] w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
     >
       {#each results as country}
         <button
