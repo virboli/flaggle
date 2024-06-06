@@ -39,7 +39,7 @@
     });
   });
 
-  function selectQuery() {
+  function submitQuery() {
     const country = data.find((country) => country.name.toLowerCase() === query.toLowerCase());
     if (country) {
       submitGuess(country);
@@ -60,16 +60,16 @@
   }
 </script>
 
-<div bind:this={container} class="relative flex flex-col">
+<div bind:this={container} class="relative flex gap-2">
   <input
     bind:value={query}
     type="text"
-    class="input input-bordered"
+    class="input input-bordered flex-1"
     placeholder="Guess a flag!"
     on:keydown={(e) => {
       if (e.key === "Enter") {
         e.preventDefault();
-        selectQuery();
+        submitQuery();
       } else if (e.key === "Tab") {
         if (results.length > 0) {
           e.preventDefault();
@@ -78,6 +78,7 @@
       }
     }}
   />
+  <button class="btn" on:click={submitQuery}>Guess</button>
   {#if results.length > 0 && focused}
     <div
       class="absolute top-[calc(100%+1rem)] w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
