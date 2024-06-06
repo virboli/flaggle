@@ -53,6 +53,7 @@
     if (country) {
       submitGuess(country);
     }
+    dispatch("enterkey");
   }
 
   function fillFirstResult() {

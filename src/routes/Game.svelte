@@ -73,7 +73,14 @@
   <p class="fixed z-20 top-0 left-0 px-3 py-2 bg-base-300 rounded-btn m-2 font-bold">{streak}</p>
 {/if}
 <div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto">
-  <GameInput on:submit={addGuess}></GameInput>
+  <GameInput
+    on:submit={addGuess}
+    on:enterkey={() => {
+      if (isGameOver) {
+        playAgain();
+      }
+    }}
+  ></GameInput>
   {#if isGameOver}
     <button class="btn self-center" on:click={playAgain}>Play Again</button>
   {/if}
