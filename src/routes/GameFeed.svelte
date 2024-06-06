@@ -11,7 +11,7 @@
   export let items: Guess[] = [];
 </script>
 
-<div class="flex flex-col gap-4 my-4 overflow-auto">
+<div class="flex flex-col gap-4 overflow-auto">
   {#each items as country, i}
     <div
       class="relative flex h-[20vw] min-h-20 max-h-48 bg-base-200/50 items-end rounded-box rounded-r-none"
