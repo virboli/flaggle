@@ -4,7 +4,10 @@
 
 <svelte:head>
   <title>Flaggle</title>
-  <meta name="description" content="Flag guessing game" />
+  <meta
+    name="description"
+    content="Flag guessing game inspired by Wordle. Test your knowledge of countries and flags!"
+  />
 </svelte:head>
 
 <Header></Header>
