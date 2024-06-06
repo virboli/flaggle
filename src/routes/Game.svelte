@@ -12,7 +12,8 @@
   }
 
   interface Guess extends Country {
-    diff: string;
+    diff?: string;
+    win?: boolean;
   }
 
   // Game state
@@ -25,21 +26,23 @@
     if (isGameOver) return;
     const country: Country = e.detail;
     const diff = await generateDiff(country, target);
+    const win = checkWin(country);
     const guess: Guess = {
       code: country.code,
       name: country.name,
       diff: diff,
+      win: win,
     };
     items = [guess, ...items];
-    checkWin(country);
   }
 
-  function checkWin(guess: Country) {
+  function checkWin(guess: Country): boolean {
     if (target.code === guess.code) {
-      alert("You win!");
       isGameOver = true;
       streak++;
+      return true;
     }
+    return false;
   }
 
   function getRandomTarget(): Country {
@@ -55,9 +58,14 @@
   }
 
   function giveUp() {
-    alert(`The answer was ${target.name}`);
     isGameOver = true;
     streak = 0;
+    // Display correct answer
+    const guess: Guess = {
+      code: target.code,
+      name: target.name,
+    };
+    items = [guess, ...items];
   }
 </script>
 
