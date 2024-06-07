@@ -75,7 +75,7 @@
     bind:value={query}
     bind:this={input}
     type="text"
-    class="input input-bordered flex-1"
+    class="input input-bordered flex-1 min-w-0"
     placeholder="Guess a flag!"
     on:keydown={(e) => {
       if (e.key === "Enter") {
