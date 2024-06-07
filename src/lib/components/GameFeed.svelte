@@ -17,8 +17,8 @@
     <div
       class="relative flex h-[20vw] min-h-20 max-h-48 bg-base-200/50 items-end rounded-box rounded-r-none"
     >
-      <p class="absolute top-0 left-0 m-4 opacity-25 text-5xl">
-        {guess.diff ? items.length - i : "Answer"}
+      <p class="absolute top-0 left-0 m-4 text-5xl">
+        <span class="text-base-content/25">{guess.diff ? items.length - i : "Answer"}</span>
         {guess.win ? " 👑" : ""}
       </p>
       <p class="m-4">{guess.name}</p>
