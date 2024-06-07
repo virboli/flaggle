@@ -71,7 +71,7 @@
   }
 </script>
 
-<p class="text-center mb-4">Flaggle #{dailyNumber}</p>
+<p class="text-center mb-4">Daily Flaggle #{dailyNumber}</p>
 <div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto">
   <GameInput on:submit={addGuess}></GameInput>
   {#if isGameOver}
