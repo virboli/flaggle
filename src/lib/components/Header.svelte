@@ -6,4 +6,7 @@
   <a href="{base}/"
     ><h1 class="text-xl">Flaggle <i class="text-base-content/50">kennyhui.dev</i></h1></a
   >
+  <div class="flex gap-4">
+    <a href="{base}/daily" class="link">Daily</a>
+  </div>
 </header>
