@@ -20,7 +20,7 @@
     win?: boolean;
   }
 
-  const dailyNumber = getDeltaDay("2024-06-07") * -1 + 1;
+  const dailyNumber = getDeltaDay("2024-06-06") * -1;
 
   // Game state
   let target: Country;
@@ -29,7 +29,8 @@
 
   onMount(async () => {
     // Generate a random number by hashing date and using the first 3 characters as a hex number
-    const date = new Date().toISOString().split("T")[0];
+    const tzo = new Date().getTimezoneOffset() * 60_000;
+    const date = new Date(Date.now() - tzo).toISOString().split("T")[0];
     const hash = await sha256(date);
     const rnd = Number("0x" + hash.slice(0, 3)) / 16 ** 3;
     const index = Math.floor(rnd * data.length);
