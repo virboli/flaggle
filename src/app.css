@@ -9,6 +9,9 @@
   .styled-scrollbar {
     @apply scrollbar-thin scrollbar-thumb-base-300 hover:scrollbar-thumb-primary scrollbar-track-transparent;
   }
+  .btn {
+    @apply shadow-none;
+  }
   .btn:focus,
   .btn:focus-within {
     box-shadow: none;
