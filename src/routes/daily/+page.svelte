@@ -65,7 +65,7 @@
   }
 
   function copyResults() {
-    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", guesses, true)}! Play at https://kennyhui.dev/flaggle/daily/`;
+    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", guesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
     navigator.clipboard.writeText(resultString);
     toast.success("Copied results to clipboard");
   }
