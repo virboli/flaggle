@@ -60,7 +60,8 @@ function calculateDiff(current?: Uint8ClampedArray, target?: Uint8ClampedArray) 
     };
 
     const diff = delta(cur.r, cur.g, cur.b, tar.r, tar.g, tar.b);
-    const threshold = 0.15;
+    const threshold = 0.2;
+
     if (diff < threshold) {
       diffData.data[i] = 120;
       diffData.data[i + 1] = 177;
