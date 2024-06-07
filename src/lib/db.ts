@@ -1,16 +1,20 @@
 import Dexie, { type Table } from "dexie";
 
-export interface GameResult {
+export interface Result {
   win: boolean;
 }
 
+export interface ClassicResult extends Result {
+  guesses: number;
+}
+
 export class Database extends Dexie {
-  history!: Table<GameResult>;
+  classic!: Table<ClassicResult>;
 
   constructor() {
     super("database");
     this.version(1).stores({
-      history: "++, win",
+      classic: "++, win, guesses",
     });
   }
 }

@@ -3,8 +3,9 @@
   import GameFeed from "$lib/components/GameFeed.svelte";
 
   import { generateDiff } from "$lib/diff";
-
   import data from "$lib/data.json";
+
+  import { db } from "$lib/db";
 
   interface Country {
     code: string;
@@ -34,6 +35,13 @@
       win: win,
     };
     items = [guess, ...items];
+    // Record game as win
+    if (win) {
+      db.classic.add({
+        win,
+        guesses: items.length,
+      });
+    }
   }
 
   function checkWin(guess: Country): boolean {
@@ -65,8 +73,15 @@
       code: target.code,
       name: target.name,
     };
+    // Record game as loss
+    db.classic.add({
+      win: false,
+      guesses: items.length,
+    });
     items = [guess, ...items];
   }
+
+  function recordGame(win: boolean, guesses: number) {}
 </script>
 
 {#if streak > 0}
