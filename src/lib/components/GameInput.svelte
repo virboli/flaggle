@@ -96,10 +96,10 @@
     >
       {#each results as country}
         <button
-          class="text-start px-3 py-2 hover:bg-base-100/50"
+          class="flex justify-between px-3 py-2 hover:bg-base-100/50"
           on:click={() => {
             submitGuess(country);
-          }}>{country.name}</button
+          }}>{country.name}<span class="text-base-content/50">{country.code}</span></button
         >
       {/each}
     </div>
