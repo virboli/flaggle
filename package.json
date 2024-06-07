@@ -43,6 +43,7 @@
   "type": "module",
   "dependencies": {
     "@fontsource-variable/figtree": "^5.0.21",
+    "@open-draft/deferred-promise": "^2.2.0",
     "dexie": "^4.0.4",
     "fuse.js": "^7.0.0",
     "pluralize": "^8.0.0",
