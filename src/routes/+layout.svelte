@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Toaster } from "svelte-french-toast";
+
   import Header from "$lib/components/Header.svelte";
 </script>
 
@@ -12,3 +14,4 @@
 
 <Header></Header>
 <div class="p-4"><slot></slot></div>
+<Toaster toastOptions={{ position: "bottom-center" }}></Toaster>
