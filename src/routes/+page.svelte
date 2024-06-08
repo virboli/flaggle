@@ -21,7 +21,6 @@
   let target = getRandomTarget();
   let items: Guess[] = [];
   let isGameOver: boolean = false;
-  let streak: number = 0;
 
   async function addGuess(e: CustomEvent) {
     if (isGameOver) return;
@@ -35,19 +34,26 @@
       win: win,
     };
     items = [guess, ...items];
-    // Record game as win
     if (win) {
+      // Record game as win
       db.classic.add({
         win,
         guesses: items.length,
       });
+      // Increment streak
+      const currentStreak = (await db.stats.get("streak"))?.value || 0;
+      const maxStreak = (await db.stats.get("max-streak"))?.value || 0;
+      db.stats.put({ name: "streak", value: currentStreak + 1 });
+      if (currentStreak + 1 > maxStreak) {
+        // Record current streak as max streak
+        db.stats.put({ name: "max-streak", value: currentStreak });
+      }
     }
   }
 
   function checkWin(guess: Country): boolean {
     if (target.code === guess.code) {
       isGameOver = true;
-      streak++;
       return true;
     }
     return false;
@@ -67,7 +73,6 @@
 
   function giveUp() {
     isGameOver = true;
-    streak = 0;
     // Display correct answer
     const guess: Guess = {
       code: target.code,
@@ -78,15 +83,12 @@
       win: false,
       guesses: items.length,
     });
+    // Reset streak to 0
+    db.stats.put({ name: "streak", value: 0 });
     items = [guess, ...items];
   }
-
-  function recordGame(win: boolean, guesses: number) {}
 </script>
 
-{#if streak > 0}
-  <p class="fixed z-20 top-0 left-0 px-3 py-2 bg-base-300 rounded-btn m-2 font-bold">{streak}</p>
-{/if}
 <div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto">
   <GameInput
     on:submit={addGuess}
