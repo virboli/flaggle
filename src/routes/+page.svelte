@@ -1,12 +1,15 @@
 <script lang="ts">
   import GameInput from "$lib/components/GameInput.svelte";
   import GameFeed from "$lib/components/GameFeed.svelte";
+  import Confirm from "$lib/components/Confirm.svelte";
 
   import { generateDiff } from "$lib/diff";
   import data from "$lib/data.json";
 
   import { db } from "$lib/db";
   import { onMount } from "svelte";
+
+  let confirm: Confirm;
 
   interface Country {
     code: string;
@@ -115,6 +118,15 @@
   {/if}
   <GameFeed {items}></GameFeed>
   {#if items.length > 0 && !isGameOver}
-    <button class="btn self-center" on:click={giveUp}>Give Up</button>
+    <button
+      class="btn self-center"
+      on:click={() => {
+        confirm
+          .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
+          .then(giveUp);
+      }}>Give Up</button
+    >
   {/if}
 </div>
+
+<Confirm bind:this={confirm}></Confirm>
