@@ -37,6 +37,7 @@
 </script>
 
 <Modal title="Stats" bind:this={modal}>
+  <h3 class="font-bold">Classic</h3>
   <div class="grid grid-cols-2 gap-y-2">
     <h4>Games played</h4>
     <p>{$classic?.length}</p>
@@ -52,11 +53,17 @@
     <p>{$streak?.value || 0}</p>
     <h4>Highest streak</h4>
     <p>{$maxStreak?.value || 0}</p>
-    <h4>Current daily streak</h4>
+  </div>
+  <h3 class="font-bold">Lightning</h3>
+  <div class="grid grid-cols-2 gap-y-2">
+    <h4>Current streak</h4>
+    <p>{$lightningStreak?.value || 0}</p>
+    <h4>Highest streak</h4>
+    <p>{$maxLightningStreak?.value || 0}</p>
+  </div>
+  <h3 class="font-bold">Daily</h3>
+  <div class="grid grid-cols-2 gap-y-2">
+    <h4>Current streak</h4>
     <p>{dailyStreak}</p>
-    <h4>Current lightning streak</h4>
-    <p>{$lightningStreak?.value}</p>
-    <h4>Highest lightning streak</h4>
-    <p>{$maxLightningStreak?.value}</p>
   </div>
 </Modal>
