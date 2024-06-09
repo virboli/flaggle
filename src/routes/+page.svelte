@@ -6,6 +6,7 @@
   import data from "$lib/data.json";
 
   import { db } from "$lib/db";
+  import { onMount } from "svelte";
 
   interface Country {
     code: string;
@@ -18,9 +19,14 @@
   }
 
   // Game state
-  let target = getRandomTarget();
+  let target: Country;
   let items: Guess[] = [];
   let isGameOver: boolean = false;
+
+  onMount(() => {
+    const previous = parseInt(window.localStorage.getItem("unfinished-flaggle-classic") || "");
+    target = previous ? data[previous] : getRandomTarget();
+  });
 
   async function addGuess(e: CustomEvent) {
     if (isGameOver) return;
@@ -48,6 +54,8 @@
         // Record current streak as max streak
         db.stats.put({ name: "max-streak", value: currentStreak + 1 });
       }
+      // Remove unfinished game state
+      window.localStorage.removeItem("unfinished-flaggle-classic");
     }
   }
 
@@ -62,6 +70,8 @@
   function getRandomTarget(): Country {
     const max = data.length;
     const index = Math.floor(Math.random() * max);
+    // Store game state
+    window.localStorage.setItem("unfinished-flaggle-classic", index.toString());
     return data[index];
   }
 
@@ -86,6 +96,8 @@
     // Reset streak to 0
     db.stats.put({ name: "streak", value: 0 });
     items = [guess, ...items];
+    // Remove unfinished game state
+    window.localStorage.removeItem("unfinished-flaggle-classic");
   }
 </script>
 
