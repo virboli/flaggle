@@ -4,6 +4,7 @@
 
   import Streak from "./Streak.svelte";
   import DailyStreak from "./DailyStreak.svelte";
+  import GameModes from "./GameModes.svelte";
 
   import BiGearFill from "~icons/bi/gear-fill";
 </script>
@@ -21,17 +22,7 @@
     <h1 class="text-xl font-bold active:scale-95 transition-transform">Flaggle</h1>
   </a>
   <div class="flex justify-end items-center h-full">
-    <a href="{base}/daily" class="btn btn-sm" class:active={$page.url.pathname === base + "/daily"}
-      >Daily</a
-    >
-    <a href="{base}/" class="btn btn-sm" class:active={$page.url.pathname === base + "/"}>Classic</a
-    >
+    <GameModes></GameModes>
     <a href="{base}/settings" class="btn btn-sm btn-square"><BiGearFill></BiGearFill></a>
   </div>
 </header>
-
-<style>
-  .active {
-    @apply bg-primary text-primary-content;
-  }
-</style>
