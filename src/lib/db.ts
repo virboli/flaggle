@@ -1,11 +1,8 @@
 import Dexie, { type Table } from "dexie";
 
-export interface Result {
-  win: boolean;
-}
-
-export interface ClassicResult extends Result {
-  guesses: number;
+interface Stat {
+  name: string;
+  value: number;
 }
 
 interface DailyResult {
@@ -13,22 +10,31 @@ interface DailyResult {
   guesses: number;
 }
 
-interface Stat {
-  name: string;
-  value: number;
+export interface Result {
+  win: boolean;
+}
+
+interface ClassicResult extends Result {
+  guesses: number;
+}
+
+interface LightningResult extends Result {
+  guesses: number;
 }
 
 export class Database extends Dexie {
-  classic!: Table<ClassicResult>;
-  daily!: Table<DailyResult>;
   stats!: Table<Stat>;
+  daily!: Table<DailyResult>;
+  classic!: Table<ClassicResult>;
+  lightning!: Table<LightningResult>;
 
   constructor() {
     super("database");
     this.version(1).stores({
       stats: "name, value",
-      classic: "++, win, guesses",
       daily: "date, guesses",
+      classic: "++, win, guesses",
+      lightning: "++, win, guesses",
     });
   }
 }
