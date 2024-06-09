@@ -27,6 +27,9 @@
   );
   $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay - 1;
 
+  const lightningStreak = liveQuery(() => db.stats.get("lightning-streak"));
+  const maxLightningStreak = liveQuery(() => db.stats.get("max-lightning-streak"));
+
   function average(array: number[]) {
     if (array.length === 0) return;
     return array.reduce((a, b) => a + b) / array.length;
@@ -47,9 +50,13 @@
     <p>{(averageGuesses && average(averageGuesses)?.toFixed(2)) || 0}</p>
     <h4>Current streak</h4>
     <p>{$streak?.value || 0}</p>
-    <h4>Max streak</h4>
+    <h4>Highest streak</h4>
     <p>{$maxStreak?.value || 0}</p>
     <h4>Current daily streak</h4>
     <p>{dailyStreak}</p>
+    <h4>Current lightning streak</h4>
+    <p>{$lightningStreak?.value}</p>
+    <h4>Highest lightning streak</h4>
+    <p>{$maxLightningStreak?.value}</p>
   </div>
 </Modal>
