@@ -63,6 +63,7 @@
       }
       // Remove unfinished game state
       window.localStorage.removeItem("unfinished-flaggle-lightning");
+      // Mark game as over
       isGameOver = true;
     }
   }

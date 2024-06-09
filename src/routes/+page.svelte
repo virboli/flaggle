@@ -66,12 +66,13 @@
       }
       // Remove unfinished game state
       window.localStorage.removeItem("unfinished-flaggle-classic");
+      // Mark game as over
+      isGameOver = true;
     }
   }
 
   function checkWin(guess: Country): boolean {
     if (target.code === guess.code) {
-      isGameOver = true;
       return true;
     }
     return false;
