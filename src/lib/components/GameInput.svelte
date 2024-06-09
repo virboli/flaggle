@@ -33,7 +33,7 @@
 
   onMount(() => {
     document.addEventListener("click", (e) => {
-      if (container.contains(e.target as Node)) {
+      if (container?.contains(e.target as Node)) {
         focused = true;
       } else {
         focused = false;
@@ -42,7 +42,7 @@
 
     document.addEventListener("keydown", (e) => {
       if (e.key.length === 1) {
-        input.focus();
+        input?.focus();
         focused = true;
       }
     });
