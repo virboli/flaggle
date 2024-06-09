@@ -84,8 +84,9 @@
 
 <p class="text-center mb-4">Daily Flaggle #{dailyNumber}</p>
 <div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto">
-  <GameInput on:submit={addGuess}></GameInput>
-  {#if isGameOver}
+  {#if !isGameOver}
+    <GameInput on:submit={addGuess}></GameInput>
+  {:else}
     <button class="btn self-center" on:click={copyResults}>Share Results</button>
   {/if}
   <GameFeed {items}></GameFeed>

@@ -28,6 +28,13 @@
   onMount(() => {
     const previous = parseInt(window.localStorage.getItem("unfinished-flaggle-lightning") || "");
     target = previous ? data[previous] : getRandomTarget();
+    // Play again on enter
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && isGameOver) {
+        e.preventDefault();
+        playAgain();
+      }
+    });
   });
 
   async function addGuess(e: CustomEvent) {
@@ -105,15 +112,9 @@
       />
     </div>
   {/if}
-  <GameInput
-    on:submit={addGuess}
-    on:enterkey={() => {
-      if (isGameOver) {
-        playAgain();
-      }
-    }}
-  ></GameInput>
-  {#if isGameOver}
+  {#if !isGameOver}
+    <GameInput on:submit={addGuess}></GameInput>
+  {:else}
     <button class="btn self-center" on:click={playAgain}>Play Again</button>
   {/if}
   <LightningFeed {items}></LightningFeed>
