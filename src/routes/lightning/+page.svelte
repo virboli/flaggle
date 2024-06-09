@@ -47,6 +47,10 @@
       win: win,
     };
     items = [...items, guess];
+    if (items.length === 6) {
+      giveUp();
+      return;
+    }
     if (win) {
       // Record game as win
       db.lightning.add({
@@ -91,7 +95,6 @@
   }
 
   function giveUp() {
-    isGameOver = true;
     // Display correct answer
     answer = target.name;
     // Record game as loss
@@ -103,6 +106,7 @@
     db.stats.put({ name: "lightning-streak", value: 0 });
     // Remove unfinished game state
     window.localStorage.removeItem("unfinished-flaggle-lightning");
+    isGameOver = true;
   }
 </script>
 
