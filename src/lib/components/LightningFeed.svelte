@@ -29,6 +29,6 @@
     @apply bg-primary text-primary-content;
   }
   .incorrect {
-    @apply bg-base-200;
+    @apply bg-base-300;
   }
 </style>

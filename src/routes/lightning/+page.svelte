@@ -46,7 +46,7 @@
       name: country.name,
       win: win,
     };
-    items = [guess, ...items];
+    items = [...items, guess];
     if (win) {
       // Record game as win
       db.lightning.add({
@@ -63,12 +63,12 @@
       }
       // Remove unfinished game state
       window.localStorage.removeItem("unfinished-flaggle-lightning");
+      isGameOver = true;
     }
   }
 
   function checkWin(guess: Country): boolean {
     if (target.code === guess.code) {
-      isGameOver = true;
       return true;
     }
     return false;
