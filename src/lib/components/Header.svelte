@@ -9,7 +9,9 @@
 
 <header class="sticky top-0 z-10 p-2 bg-base-200 grid grid-cols-[1fr_auto_1fr]">
   <div class="flex justify-start items-center h-full">
-    <Streak></Streak>
+    {#if $page.url.pathname === base + "/"}
+      <Streak></Streak>
+    {/if}
   </div>
   <a href="{base}/"><h1 class="text-xl font-bold">Flaggle</h1></a>
   <div class="flex justify-end items-center h-full">
