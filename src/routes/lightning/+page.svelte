@@ -24,6 +24,7 @@
   let target: Country;
   let items: Guess[] = [];
   let isGameOver: boolean = false;
+  let answer: string = "";
 
   onMount(() => {
     const previous = parseInt(window.localStorage.getItem("unfinished-flaggle-lightning") || "");
@@ -85,11 +86,13 @@
     target = getRandomTarget();
     items = [];
     isGameOver = false;
+    answer = "";
   }
 
   function giveUp() {
     isGameOver = true;
     // Display correct answer
+    answer = target.name;
     // Record game as loss
     db.lightning.add({
       win: false,
@@ -117,15 +120,20 @@
   {:else}
     <button class="btn self-center" on:click={playAgain}>Play Again</button>
   {/if}
+  {#if answer !== ""}
+    <p class="mx-auto">Answer: {answer}</p>
+  {/if}
   <LightningFeed {items}></LightningFeed>
-  <button
-    class="btn self-center"
-    on:click={() => {
-      confirm
-        .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
-        .then(giveUp);
-    }}>Give Up</button
-  >
+  {#if !isGameOver}
+    <button
+      class="btn self-center"
+      on:click={() => {
+        confirm
+          .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
+          .then(giveUp);
+      }}>Give Up</button
+    >
+  {/if}
 </div>
 
 <Confirm bind:this={confirm}></Confirm>

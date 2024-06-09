@@ -26,7 +26,7 @@
 
 <style>
   .correct {
-    @apply bg-[#84b064];
+    @apply bg-primary text-primary-content;
   }
   .incorrect {
     @apply bg-base-200;
