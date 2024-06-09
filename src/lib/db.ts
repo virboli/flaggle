@@ -9,6 +9,7 @@ export interface ClassicResult extends Result {
 }
 
 interface DailyResult {
+  date: string;
   guesses: number;
 }
 
@@ -27,7 +28,7 @@ export class Database extends Dexie {
     this.version(1).stores({
       stats: "name, value",
       classic: "++, win, guesses",
-      daily: "guesses",
+      daily: "date, guesses",
     });
   }
 }

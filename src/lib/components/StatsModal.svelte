@@ -4,6 +4,8 @@
   import { db } from "$lib/db";
   import { liveQuery } from "dexie";
 
+  import { getDeltaDay } from "$lib/date";
+
   let modal: Modal;
 
   export function show() {
@@ -17,6 +19,10 @@
   $: classicWins = $classic?.filter((result) => result.win).length;
   $: classicLosses = $classic?.filter((result) => !result.win).length;
   $: averageGuesses = $classic?.map((result) => result.guesses);
+
+  const daily = liveQuery(() => db.daily.toArray());
+
+  $: dailyStreak = $daily?.findLastIndex((result, i) => getDeltaDay(result.date) !== i * -1) - 1;
 
   function average(array: number[]) {
     if (array.length === 0) return;
@@ -40,5 +46,7 @@
     <p>{$streak?.value}</p>
     <h4>Max streak</h4>
     <p>{$maxStreak?.value}</p>
+    <h4>Current daily streak</h4>
+    <p>{dailyStreak === -1 ? $daily?.length : dailyStreak}</p>
   </div>
 </Modal>

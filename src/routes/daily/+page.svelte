@@ -62,7 +62,7 @@
     if (win) {
       // Record today as win if there is not existing record
       const exists = (await db.daily.get(ISODate)) !== undefined;
-      if (!exists) db.daily.put({ guesses }, ISODate);
+      if (!exists) db.daily.put({ date: ISODate, guesses }, ISODate);
     }
   }
 
