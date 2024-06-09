@@ -12,8 +12,9 @@
     {#if $page.url.pathname === base + "/"}
       <Streak></Streak>
     {/if}
+    <button class="btn btn-sm">Stats</button>
   </div>
-  <a href="{base}/"><h1 class="text-xl font-bold">Flaggle</h1></a>
+  <a href="{base}/"><h1 class="text-xl font-bold active:scale-95 transition-transform">Flaggle</h1></a>
   <div class="flex justify-end items-center h-full">
     <a href="{base}/daily" class="btn btn-sm" class:active={$page.url.pathname === base + "/daily"}
       >Daily</a
@@ -26,6 +27,6 @@
 
 <style>
   .active {
-    @apply bg-base-100/50;
+    @apply bg-primary text-primary-content;
   }
 </style>
