@@ -18,7 +18,8 @@
   $: classicLosses = $classic?.filter((result) => !result.win).length;
   $: averageGuesses = $classic?.map((result) => result.guesses);
 
-  function average(array: number[]): number {
+  function average(array: number[]) {
+    if (array.length === 0) return;
     return array.reduce((a, b) => a + b) / array.length;
   }
 </script>
@@ -34,7 +35,7 @@
     <h4>Win/Loss ratio</h4>
     <p>{((classicWins / classicLosses) * 100).toFixed(1)}%</p>
     <h4>Average guesses</h4>
-    <p>{averageGuesses && average(averageGuesses).toFixed(2)}</p>
+    <p>{averageGuesses && average(averageGuesses)?.toFixed(2)}</p>
     <h4>Current streak</h4>
     <p>{$streak?.value}</p>
     <h4>Max streak</h4>
