@@ -4,6 +4,7 @@
 
   import Streak from "./Streak.svelte";
   import DailyStreak from "./DailyStreak.svelte";
+  import LightningStreak from "./LightningStreak.svelte";
   import GameModes from "./GameModes.svelte";
 
   import BiGearFill from "~icons/bi/gear-fill";
@@ -15,6 +16,8 @@
       <Streak></Streak>
     {:else if $page.url.pathname === base + "/daily"}
       <DailyStreak></DailyStreak>
+    {:else if $page.url.pathname === base + "/lightning"}
+      <LightningStreak></LightningStreak>
     {/if}
     <slot></slot>
   </div>
