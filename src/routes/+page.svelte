@@ -46,7 +46,7 @@
       db.stats.put({ name: "streak", value: currentStreak + 1 });
       if (currentStreak + 1 > maxStreak) {
         // Record current streak as max streak
-        db.stats.put({ name: "max-streak", value: currentStreak });
+        db.stats.put({ name: "max-streak", value: currentStreak + 1 });
       }
     }
   }
