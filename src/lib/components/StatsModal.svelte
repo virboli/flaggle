@@ -18,7 +18,7 @@
 
   $: classicWins = $classic?.filter((result) => result.win).length;
   $: classicLosses = $classic?.filter((result) => !result.win).length;
-  $: averageGuesses = $classic?.map((result) => result.guesses);
+  $: averageGuesses = $classic?.filter((result) => result.win).map((result) => result.guesses);
 
   const daily = liveQuery(() => db.daily.toArray());
 
