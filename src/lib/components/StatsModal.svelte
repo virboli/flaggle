@@ -42,13 +42,13 @@
     <h4>Games lost</h4>
     <p>{classicLosses}</p>
     <h4>Win/Loss ratio</h4>
-    <p>{((classicWins / classicLosses) * 100).toFixed(1)}%</p>
+    <p>{((classicWins / classicLosses) * 100 || 0).toFixed(1)}%</p>
     <h4>Average guesses</h4>
-    <p>{averageGuesses && average(averageGuesses)?.toFixed(2)}</p>
+    <p>{(averageGuesses && average(averageGuesses)?.toFixed(2)) || 0}</p>
     <h4>Current streak</h4>
-    <p>{$streak?.value}</p>
+    <p>{$streak?.value || 0}</p>
     <h4>Max streak</h4>
-    <p>{$maxStreak?.value}</p>
+    <p>{$maxStreak?.value || 0}</p>
     <h4>Current daily streak</h4>
     <p>{dailyStreak}</p>
   </div>
