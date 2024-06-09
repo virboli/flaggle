@@ -12,6 +12,8 @@
   import toast from "svelte-french-toast";
   import pluralize from "pluralize";
 
+  import { db } from "$lib/db";
+
   interface Country {
     code: string;
     name: string;
@@ -24,6 +26,8 @@
 
   const dailyNumber = getDeltaDay("2024-06-06") * -1;
 
+  let ISODate: string;
+
   // Game state
   let target: Country;
   let items: Guess[] = [];
@@ -35,6 +39,7 @@
     // Generate a random number by hashing date and using the first 3 characters as a hex number
     const tzo = new Date().getTimezoneOffset() * 60_000;
     const date = new Date(Date.now() - tzo).toISOString().split("T")[0];
+    ISODate = date;
     const hash = await sha256(date);
     const rnd = Number("0x" + hash.slice(0, 3)) / 16 ** 3;
     const index = Math.floor(rnd * data.length);
@@ -54,6 +59,11 @@
     };
     items = [guess, ...items];
     guesses++;
+    if (win) {
+      // Record today as win if there is not existing record
+      const exists = (await db.daily.get(ISODate)) !== undefined;
+      if (!exists) db.daily.put({ guesses }, ISODate);
+    }
   }
 
   function checkWin(guess: Country): boolean {
@@ -64,8 +74,9 @@
     return false;
   }
 
-  function copyResults() {
-    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", guesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
+  async function copyResults() {
+    const canonicalGuesses = (await db.daily.get(ISODate))?.guesses || guesses;
+    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", canonicalGuesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
     navigator.clipboard.writeText(resultString);
     toast.success("Copied results to clipboard");
   }

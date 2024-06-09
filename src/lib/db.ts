@@ -8,6 +8,10 @@ export interface ClassicResult extends Result {
   guesses: number;
 }
 
+interface DailyResult {
+  guesses: number;
+}
+
 interface Stat {
   name: string;
   value: number;
@@ -15,6 +19,7 @@ interface Stat {
 
 export class Database extends Dexie {
   classic!: Table<ClassicResult>;
+  daily!: Table<DailyResult>;
   stats!: Table<Stat>;
 
   constructor() {
@@ -22,6 +27,7 @@ export class Database extends Dexie {
     this.version(1).stores({
       stats: "name, value",
       classic: "++, win, guesses",
+      daily: "guesses",
     });
   }
 }
