@@ -3,6 +3,7 @@
   import { page } from "$app/stores";
 
   import Streak from "./Streak.svelte";
+  import DailyStreak from "./DailyStreak.svelte";
 
   import BiGearFill from "~icons/bi/gear-fill";
 </script>
@@ -11,6 +12,8 @@
   <div class="flex justify-start items-center h-full">
     {#if $page.url.pathname === base + "/"}
       <Streak></Streak>
+    {:else if $page.url.pathname === base + "/daily"}
+      <DailyStreak></DailyStreak>
     {/if}
     <slot></slot>
   </div>

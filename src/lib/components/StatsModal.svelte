@@ -22,7 +22,8 @@
 
   const daily = liveQuery(() => db.daily.toArray());
 
-  $: dailyStreak = $daily?.findLastIndex((result, i) => getDeltaDay(result.date) !== i * -1) - 1;
+  $: lastMissedDay = $daily?.findLastIndex((result, i) => getDeltaDay(result.date) !== i * -1) - 1;
+  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay;
 
   function average(array: number[]) {
     if (array.length === 0) return;
@@ -47,6 +48,6 @@
     <h4>Max streak</h4>
     <p>{$maxStreak?.value}</p>
     <h4>Current daily streak</h4>
-    <p>{dailyStreak === -1 ? $daily?.length : dailyStreak}</p>
+    <p>{dailyStreak}</p>
   </div>
 </Modal>
