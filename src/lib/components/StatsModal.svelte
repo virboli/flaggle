@@ -22,8 +22,8 @@
 
   const daily = liveQuery(() => db.daily.toArray());
 
-  $: lastMissedDay = $daily?.findLastIndex((result, i) => getDeltaDay(result.date) !== i * -1) - 1;
-  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay;
+  $: lastMissedDay = $daily?.findLastIndex((result, i) => getDeltaDay(result.date) !== i * -1);
+  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay - 1;
 
   function average(array: number[]) {
     if (array.length === 0) return;
