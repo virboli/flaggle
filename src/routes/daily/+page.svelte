@@ -24,7 +24,7 @@
     win?: boolean;
   }
 
-  const dailyNumber = getDeltaDay("2024-06-06") * -1;
+  const dailyNumber = getDeltaDay("2024-06-06") * -1 + 1;
 
   let ISODate: string;
 
