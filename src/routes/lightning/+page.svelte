@@ -118,7 +118,7 @@
       <img
         src="./flags/{target?.code}.png"
         alt={target?.name}
-        class="bg-base-100/50 aspect-[3/2]"
+        class="bg-base-100/50 aspect-[3/2] pointer-events-none"
       />
     </div>
   {/if}
