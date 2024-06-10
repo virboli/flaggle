@@ -14,6 +14,6 @@
 
 {#if dailyStreak > 0}
   <div class="bg-base-300 px-3 self-stretch rounded-btn flex items-center">
-    <p class="font-bold">{pluralize("day", dailyStreak, true)}</p>
+    <p class="font-bold">{dailyStreak.toLocaleString()} {pluralize("day", dailyStreak)}</p>
   </div>
 {/if}
