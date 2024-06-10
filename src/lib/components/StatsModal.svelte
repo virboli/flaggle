@@ -29,6 +29,13 @@
 
   const lightningStreak = liveQuery(() => db.stats.get("lightning-streak"));
   const maxLightningStreak = liveQuery(() => db.stats.get("max-lightning-streak"));
+  const lightning = liveQuery(() => db.lightning.toArray());
+
+  $: lightningWins = $lightning?.filter((result) => result.win).length;
+  $: lightningLosses = $lightning?.filter((result) => !result.win).length;
+  $: lightningAverageGuesses = $lightning
+    ?.filter((result) => result.win)
+    .map((result) => result.guesses);
 
   function average(array: number[]) {
     if (array.length === 0) return;
@@ -56,6 +63,16 @@
   </div>
   <h3 class="font-bold">Lightning</h3>
   <div class="grid grid-cols-2 gap-y-2">
+    <h4>Games played</h4>
+    <p>{$lightning?.length}</p>
+    <h4>Games won</h4>
+    <p>{lightningWins}</p>
+    <h4>Games lost</h4>
+    <p>{lightningLosses}</p>
+    <h4>Win/Loss ratio</h4>
+    <p>{((lightningWins / lightningLosses) * 100 || 0).toFixed(1)}%</p>
+    <h4>Average guesses</h4>
+    <p>{(lightningAverageGuesses && average(lightningAverageGuesses)?.toFixed(2)) || 0}</p>
     <h4>Current streak</h4>
     <p>{$lightningStreak?.value || 0}</p>
     <h4>Highest streak</h4>
