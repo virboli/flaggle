@@ -45,7 +45,7 @@
 
 <Modal title="Statistics" bind:this={modal}>
   <h3 class="font-bold">Classic</h3>
-  <div class="grid grid-cols-2 gap-y-2">
+  <div class="grid grid-cols-2 gap-y-2 mb-2">
     <h4>Games played</h4>
     <p>{$classic?.length}</p>
     <h4>Games won</h4>
@@ -62,7 +62,7 @@
     <p>{$maxStreak?.value || 0}</p>
   </div>
   <h3 class="font-bold">Lightning</h3>
-  <div class="grid grid-cols-2 gap-y-2">
+  <div class="grid grid-cols-2 gap-y-2 mb-2">
     <h4>Games played</h4>
     <p>{$lightning?.length}</p>
     <h4>Games won</h4>
