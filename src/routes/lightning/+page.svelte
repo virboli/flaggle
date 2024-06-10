@@ -16,8 +16,9 @@
   }
 
   interface Guess {
-    name: string;
     win: boolean;
+    name: string;
+    code?: string;
   }
 
   // Game state
@@ -43,8 +44,9 @@
     const country: Country = e.detail;
     const win = checkWin(country);
     const guess: Guess = {
-      name: country.name,
       win: win,
+      name: country.name,
+      code: country.code,
     };
     items = [...items, guess];
     if (items.length === 6) {

@@ -1,7 +1,8 @@
 <script lang="ts">
   interface Guess {
-    name: string;
     win: boolean;
+    name: string;
+    code?: string;
   }
 
   export let items: Guess[] = [];
@@ -16,6 +17,13 @@
         class:correct={guess?.win}
         class:incorrect={!guess?.win}
       >
+        {#if guess.code}
+          <img
+            src="./flags/{guess.code}.png"
+            alt={guess.name}
+            class="bg-base-100/50 h-full aspect-[3/2]"
+          />
+        {/if}
         <p>{guess.name}</p>
       </div>
     {:else}
