@@ -52,7 +52,7 @@ export default {
           "neutral-content": "#525252",
           "base-100": "#eeeeee",
           "base-200": "#fafafa",
-          "base-300": "#d4d4d4",
+          "base-300": "#d9d9d9",
           "base-content": "#2c2c2c",
 
           "--rounded-box": "0.75rem",
