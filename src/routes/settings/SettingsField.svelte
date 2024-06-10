@@ -28,7 +28,7 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<div class="default-border rounded-btn p-2 bg-base-200">
+<div class="rounded-box p-2 bg-base-200">
   <h2 class="font-bold mx-1">{title}</h2>
   {#if type === "checkbox"}
     <label class="label cursor-pointer items-start justify-normal gap-2">

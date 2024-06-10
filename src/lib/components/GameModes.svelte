@@ -32,7 +32,7 @@
   <ul
     tabindex="0"
     role="menu"
-    class="dropdown-content z-[1] menu p-2 shadow-lg bg-base-100 rounded-box w-52"
+    class="dropdown-content z-[1] menu p-2 shadow-lg bg-base-200 rounded-box w-52"
   >
     {#each gameModes as mode}
       <li>
