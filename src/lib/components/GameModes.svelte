@@ -2,7 +2,7 @@
   import { base } from "$app/paths";
   import { page } from "$app/stores";
 
-  import BiList from "~icons/bi/list";
+  import LucideMenu from "~icons/lucide/menu";
 
   interface GameMode {
     name: string;
@@ -28,7 +28,7 @@
   {/each}
 </div>
 <div class="dropdown dropdown-end md:hidden">
-  <div tabindex="0" role="button" class="btn btn-sm btn-square"><BiList></BiList></div>
+  <div tabindex="0" role="button" class="btn btn-sm btn-square"><LucideMenu></LucideMenu></div>
   <ul
     tabindex="0"
     role="menu"

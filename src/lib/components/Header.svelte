@@ -7,7 +7,7 @@
   import LightningStreak from "./LightningStreak.svelte";
   import GameModes from "./GameModes.svelte";
 
-  import BiGearFill from "~icons/bi/gear-fill";
+  import LucideSettings from "~icons/lucide/settings";
 </script>
 
 <header class="sticky top-0 z-10 p-2 bg-base-200 grid grid-cols-[1fr_auto_1fr]">
@@ -26,6 +26,6 @@
   </a>
   <div class="flex justify-end items-center h-full">
     <GameModes></GameModes>
-    <a href="{base}/settings" class="btn btn-sm btn-square"><BiGearFill></BiGearFill></a>
+    <a href="{base}/settings" class="btn btn-sm btn-square"><LucideSettings></LucideSettings></a>
   </div>
 </header>

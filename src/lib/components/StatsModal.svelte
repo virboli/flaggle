@@ -36,7 +36,7 @@
   }
 </script>
 
-<Modal title="Stats" bind:this={modal}>
+<Modal title="Statistics" bind:this={modal}>
   <h3 class="font-bold">Classic</h3>
   <div class="grid grid-cols-2 gap-y-2">
     <h4>Games played</h4>
