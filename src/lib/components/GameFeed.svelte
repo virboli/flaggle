@@ -30,7 +30,7 @@
       {#if guess.diff}
         <img
           src={guess.diff}
-          alt="{guess.name} overlay"
+          alt="{guess.name} diff"
           class="bg-base-100/50 h-full aspect-[3/2] ml-2"
         />
       {/if}

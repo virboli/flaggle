@@ -117,7 +117,7 @@
     <div class="h-[20vw] min-h-20 max-h-48 flex justify-center">
       <img
         src="./flags/{target?.code}.png"
-        alt={target?.name}
+        alt="Target flag"
         class="bg-base-100/50 aspect-[3/2] pointer-events-none"
       />
     </div>
