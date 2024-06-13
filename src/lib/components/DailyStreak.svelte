@@ -9,7 +9,7 @@
   $: lastMissedDay = $daily?.findLastIndex(
     (result, i) => getDeltaDay(result.date) !== ($daily.length - i - 1) * -1,
   );
-  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay - 1;
+  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay;
 </script>
 
 {#if dailyStreak > 0}

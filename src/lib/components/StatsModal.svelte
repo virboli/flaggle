@@ -25,7 +25,7 @@
   $: lastMissedDay = $daily?.findLastIndex(
     (result, i) => getDeltaDay(result.date) !== ($daily.length - i - 1) * -1,
   );
-  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay - 1;
+  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay;
 
   const lightningStreak = liveQuery(() => db.stats.get("lightning-streak"));
   const maxLightningStreak = liveQuery(() => db.stats.get("max-lightning-streak"));
