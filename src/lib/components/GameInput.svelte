@@ -3,6 +3,8 @@
   import data from "$lib/data.json";
   import { createEventDispatcher, onMount } from "svelte";
 
+  import LucideFlag from '~icons/lucide/flag';
+
   const dispatch = createEventDispatcher();
 
   const fuse = new Fuse(data, {
@@ -70,12 +72,12 @@
   }
 </script>
 
-<div bind:this={container} class="relative flex gap-2">
+<div bind:this={container} class="relative flex gap-1 bg-base-200 rounded-btn">
   <input
     bind:value={query}
     bind:this={input}
     type="text"
-    class="input input-bordered flex-1 min-w-0"
+    class="input flex-1 min-w-0 bg-transparent"
     placeholder="Guess a flag!"
     on:keydown={(e) => {
       if (e.key === "Enter") {
@@ -89,7 +91,7 @@
       }
     }}
   />
-  <button class="btn" on:click={submitQuery}>Guess</button>
+  <button class="btn btn-square" on:click={submitQuery}><LucideFlag></LucideFlag></button>
   {#if results.length > 0 && focused}
     <div
       class="absolute z-10 top-[calc(100%+1rem)] w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
