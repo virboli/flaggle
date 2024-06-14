@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  import BiCheck from "~icons/bi/check";
+  import LucideCheck from "~icons/lucide/check";
 
   interface Option {
     name: string;
@@ -68,7 +68,7 @@
             dispatch("save", {
               value,
             });
-          }}><BiCheck></BiCheck></button
+          }}><LucideCheck></LucideCheck></button
         >
       </div>
     </label>
