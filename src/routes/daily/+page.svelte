@@ -82,12 +82,10 @@
   }
 </script>
 
-<p class="text-center mb-4">Daily Flaggle #{dailyNumber}</p>
-<div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto">
-  {#if !isGameOver}
-    <GameInput on:submit={addGuess}></GameInput>
-  {:else}
-    <button class="btn self-center" on:click={copyResults}>Share Results</button>
-  {/if}
-  <GameFeed {items}></GameFeed>
-</div>
+<p class="text-center">Daily Flaggle #{dailyNumber}</p>
+{#if !isGameOver}
+  <GameInput on:submit={addGuess}></GameInput>
+{:else}
+  <button class="btn self-center" on:click={copyResults}>Share Results</button>
+{/if}
+<GameFeed {items}></GameFeed>

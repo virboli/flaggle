@@ -22,7 +22,9 @@
     ><LucideBarChart3></LucideBarChart3></button
   >
 </Header>
-<div class="p-4"><slot></slot></div>
+<div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto p-4">
+  <slot></slot>
+</div>
 <p class="opacity-50 pointer-events-none fixed bottom-0 left-0 mx-3 my-2"><i>kennyhui.dev</i></p>
 <Toaster toastOptions={{ position: "bottom-center" }}></Toaster>
 <StatsModal bind:this={statsModal}></StatsModal>

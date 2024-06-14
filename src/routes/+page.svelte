@@ -112,23 +112,20 @@
   }
 </script>
 
-<div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto">
-  {#if !isGameOver}
-    <GameInput on:submit={addGuess}></GameInput>
-  {:else}
-    <button class="btn self-center" on:click={playAgain}>Play Again</button>
-  {/if}
-  <GameFeed {items}></GameFeed>
-  {#if items.length > 0 && !isGameOver}
-    <button
-      class="btn self-center"
-      on:click={() => {
-        confirm
-          .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
-          .then(giveUp);
-      }}>Give Up</button
-    >
-  {/if}
-</div>
-
+{#if !isGameOver}
+  <GameInput on:submit={addGuess}></GameInput>
+{:else}
+  <button class="btn self-center" on:click={playAgain}>Play Again</button>
+{/if}
+<GameFeed {items}></GameFeed>
+{#if items.length > 0 && !isGameOver}
+  <button
+    class="btn self-center"
+    on:click={() => {
+      confirm
+        .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
+        .then(giveUp);
+    }}>Give Up</button
+  >
+{/if}
 <Confirm bind:this={confirm}></Confirm>
