@@ -21,13 +21,13 @@
     {:else if $page.url.pathname === base + "/daily"}
       <Streak value={$dailyStreak} postfix={pluralize("day", $dailyStreak)}></Streak>
     {/if}
-    <slot></slot>
   </div>
   <a href="{base}/">
     <h1 class="text-xl font-bold active:scale-95 transition-transform">Flaggle</h1>
   </a>
   <div class="flex justify-end items-center h-full">
     <GameModes></GameModes>
+    <slot></slot>
     <a href="{base}/settings" class="btn btn-sm btn-square" aria-label="Settings">
       <LucideSettings></LucideSettings>
     </a>
