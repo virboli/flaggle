@@ -3,7 +3,7 @@
   import data from "$lib/data.json";
   import { createEventDispatcher, onMount } from "svelte";
 
-  import LucideFlag from '~icons/lucide/flag';
+  import LucideFlag from "~icons/lucide/flag";
 
   const dispatch = createEventDispatcher();
 
@@ -91,7 +91,9 @@
       }
     }}
   />
-  <button class="btn btn-square" on:click={submitQuery}><LucideFlag></LucideFlag></button>
+  <button class="btn btn-square" on:click={submitQuery} aria-label="Guess">
+    <LucideFlag></LucideFlag>
+  </button>
   {#if results.length > 0 && focused}
     <div
       class="absolute z-10 top-[calc(100%+1rem)] w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
