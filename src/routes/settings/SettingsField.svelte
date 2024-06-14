@@ -45,7 +45,7 @@
   {:else if type === "select"}
     <label class="label cursor-pointer flex-col items-start justify-normal gap-2">
       <span class="label-text text-neutral-content"><slot></slot></span>
-      <select class="select select-bordered select-sm w-full max-w-xs" bind:value>
+      <select class="select select-sm w-full max-w-xs" bind:value>
         {#each options as option}
           <option value={option.value}>{option.name}</option>
         {/each}
@@ -57,7 +57,7 @@
       <div class="flex flex-row gap-2">
         <input
           type="text"
-          class="input input-bordered input-sm w-full max-w-xs"
+          class="input input-sm w-full max-w-xs"
           bind:value
           {maxlength}
           {placeholder}
