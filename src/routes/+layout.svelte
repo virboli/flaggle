@@ -18,9 +18,9 @@
 </svelte:head>
 
 <Header>
-  <button class="btn btn-sm btn-square" on:click={statsModal.show}
-    ><LucideBarChart3></LucideBarChart3></button
-  >
+  <button class="btn btn-sm btn-square" on:click={statsModal.show} aria-label="Stats">
+    <LucideBarChart3></LucideBarChart3>
+  </button>
 </Header>
 <div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto p-4">
   <slot></slot>

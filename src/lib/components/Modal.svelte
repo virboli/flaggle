@@ -13,8 +13,8 @@
 <dialog class="modal" bind:this={modal} on:close>
   <div class="modal-box">
     <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-        ><LucideX></LucideX>
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" aria-label="Close">
+        <LucideX></LucideX>
       </button>
     </form>
     <div class="flex flex-col gap-2">

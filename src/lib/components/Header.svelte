@@ -26,6 +26,8 @@
   </a>
   <div class="flex justify-end items-center h-full">
     <GameModes></GameModes>
-    <a href="{base}/settings" class="btn btn-sm btn-square"><LucideSettings></LucideSettings></a>
+    <a href="{base}/settings" class="btn btn-sm btn-square" aria-label="Settings">
+      <LucideSettings></LucideSettings>
+    </a>
   </div>
 </header>

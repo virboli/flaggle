@@ -28,7 +28,9 @@
   {/each}
 </div>
 <div class="dropdown dropdown-end md:hidden">
-  <div tabindex="0" role="button" class="btn btn-sm btn-square"><LucideMenu></LucideMenu></div>
+  <div tabindex="0" role="button" class="btn btn-sm btn-square" aria-label="Game modes">
+    <LucideMenu></LucideMenu>
+  </div>
   <ul
     tabindex="0"
     role="menu"
