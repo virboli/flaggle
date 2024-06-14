@@ -5,7 +5,7 @@ interface Stat {
   value: number;
 }
 
-interface DailyResult {
+export interface DailyResult {
   date: string;
   guesses: number;
 }
@@ -14,11 +14,11 @@ export interface Result {
   win: boolean;
 }
 
-interface ClassicResult extends Result {
+export interface ClassicResult extends Result {
   guesses: number;
 }
 
-interface LightningResult extends Result {
+export interface LightningResult extends Result {
   guesses: number;
 }
 

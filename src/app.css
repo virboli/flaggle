@@ -3,9 +3,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  .default-border {
-    @apply border border-[var(--fallback-bc,oklch(var(--bc)/0.2))];
-  }
   .btn {
     @apply shadow-none;
   }
