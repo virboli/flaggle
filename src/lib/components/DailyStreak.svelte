@@ -6,10 +6,20 @@
 
   const daily = liveQuery(() => db.daily.toArray());
 
-  $: lastMissedDay = $daily?.findLastIndex(
-    (result, i) => getDeltaDay(result.date) !== ($daily.length - i - 1) * -1,
-  );
-  $: dailyStreak = lastMissedDay === -1 ? $daily?.length : lastMissedDay;
+  let dailyStreak: number;
+
+  $: $daily, (dailyStreak = calculateDailyStreak() || 0);
+
+  function calculateDailyStreak() {
+    if (!$daily) return;
+    let streak: number = 0;
+    for (let i = $daily.length - 1; i >= 0; i--) {
+      const targetDelta = i - $daily.length + 1;
+      const currentDelta = getDeltaDay($daily[i].date);
+      if (targetDelta === currentDelta) streak++;
+    }
+    return streak;
+  }
 </script>
 
 {#if dailyStreak > 0}
