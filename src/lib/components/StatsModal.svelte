@@ -57,11 +57,11 @@
   <h3 class="font-bold">Classic</h3>
   <div class="grid grid-cols-2 gap-y-2 mb-2">
     <h4>Games played</h4>
-    <p>{$classic?.length}</p>
+    <p>{$classic?.length || 0}</p>
     <h4>Games won</h4>
-    <p>{classicWins}</p>
+    <p>{classicWins || 0}</p>
     <h4>Games lost</h4>
-    <p>{classicLosses}</p>
+    <p>{classicLosses || 0}</p>
     <h4>Win/Loss ratio</h4>
     <p>{((classicWins / classicLosses) * 100 || 0).toFixed(1)}%</p>
     <h4>Average guesses</h4>
@@ -74,11 +74,11 @@
   <h3 class="font-bold">Lightning</h3>
   <div class="grid grid-cols-2 gap-y-2 mb-2">
     <h4>Games played</h4>
-    <p>{$lightning?.length}</p>
+    <p>{$lightning?.length || 0}</p>
     <h4>Games won</h4>
-    <p>{lightningWins}</p>
+    <p>{lightningWins || 0}</p>
     <h4>Games lost</h4>
-    <p>{lightningLosses}</p>
+    <p>{lightningLosses || 0}</p>
     <h4>Win/Loss ratio</h4>
     <p>{((lightningWins / lightningLosses) * 100 || 0).toFixed(1)}%</p>
     <h4>Average guesses</h4>
