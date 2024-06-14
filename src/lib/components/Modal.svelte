@@ -18,7 +18,7 @@
       </button>
     </form>
     <div class="flex flex-col gap-2">
-      <h3 class="font-bold text-lg">{title}</h3>
+      <h1 class="font-bold text-lg">{title}</h1>
       <slot></slot>
     </div>
   </div>
