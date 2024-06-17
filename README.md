@@ -32,9 +32,15 @@ This mode is faster paced than **Classic**. The target flag is shown to you and 
 
 ### Daily
 
-This mode features the same gameplay as **Classic**, but there is a new target flag every day, similar to Wordle. Try to guess the flag in as few attempts as possible and challenge your friends! There's no giving up...
+This mode features the same gameplay as **Classic**, but the target flag is chosen daily, similar to Wordle. Try to guess the flag in as few attempts as possible and challenge your friends! There's no giving up...
 
 Streaks in this mode are counted by the past consecutive days you were able to guess the target flag.
+
+### Tips
+
+You can press tab to insert the first suggestion.
+
+You can search for a country using its two letter ISO code which could be a lot faster than typing out the full name.
 
 ## Stats
 
