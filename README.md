@@ -4,7 +4,7 @@
 
 Play here: [kennyhui.dev/flaggle](https://kennyhui.dev/flaggle/)
 
-A flag guessing game inspired by Wordle. Currently includes 255 country flags and two game modes!
+A flag guessing game inspired by Wordle. Currently includes 255 country flags and three game modes!
 
 ## How to play
 
@@ -54,7 +54,7 @@ Change your theme by clicking the settings button in the top right corner.
 
 Flag SVGs, country names, and ISO codes are obtained from [flagpedia.net](https://flagpedia.net/).
 
-They are scaled into the same aspect ratio (3:2) using [khui0/flaggle-flag-generator](https://github.com/khui0/flaggle-flag-generator)
+Images with a common aspect ratio (3:2) are generated using [khui0/flaggle-flag-generator](https://github.com/khui0/flaggle-flag-generator)
 
 ## Development
 
