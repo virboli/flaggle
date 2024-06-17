@@ -2,6 +2,11 @@
 
 # Flaggle
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/khui0/flaggle?color=%23366aed)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/khui0/flaggle?color=%23366aed)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/khui0/flaggle/deploy.yml?color=%23366aed)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fkennyhui.dev%2Fflaggle%2F&color=%23366aed)
+
 Play here: [kennyhui.dev/flaggle](https://kennyhui.dev/flaggle/)
 
 A flag guessing game inspired by Wordle. Currently includes 255 country flags and three game modes!
