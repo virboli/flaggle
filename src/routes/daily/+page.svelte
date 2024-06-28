@@ -1,6 +1,7 @@
 <script lang="ts">
   import GameInput from "$lib/components/GameInput.svelte";
   import GameFeed from "$lib/components/GameFeed.svelte";
+  import Modal from "$lib/components/Modal.svelte";
 
   import { generateDiff } from "$lib/diff";
   import { sha256 } from "$lib/crypto";
@@ -34,6 +35,9 @@
   let isGameOver: boolean = false;
 
   let guesses: number = 0;
+
+  let modal: Modal;
+  let results: string = "";
 
   onMount(async () => {
     // Generate a random number by hashing date and using the first 3 characters as a hex number
@@ -74,11 +78,20 @@
     return false;
   }
 
-  async function copyResults() {
-    const canonicalGuesses = (await db.daily.get(ISODate))?.guesses || guesses;
-    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", canonicalGuesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
-    navigator.clipboard.writeText(resultString);
-    toast.success("Copied results to clipboard");
+  function copyResults() {
+    db.daily.get(ISODate).then((value) => {
+      const canonicalGuesses = value?.guesses || guesses;
+      const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", canonicalGuesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
+      navigator.clipboard
+        .writeText(resultString)
+        .then(() => {
+          toast.success("Copied results to clipboard");
+        })
+        .catch(() => {
+          results = resultString;
+          modal.show();
+        });
+    });
   }
 </script>
 
@@ -89,3 +102,7 @@
   <button class="btn self-center" on:click={copyResults}>Share Results</button>
 {/if}
 <GameFeed {items}></GameFeed>
+
+<Modal title="Results" bind:this={modal}>
+  <p>{results}</p>
+</Modal>
