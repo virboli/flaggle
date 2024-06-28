@@ -8,6 +8,7 @@
   }
 
   export let title: string;
+  export let centered: boolean = false;
 </script>
 
 <dialog class="modal" bind:this={modal} on:close>
@@ -17,8 +18,8 @@
         <LucideX></LucideX>
       </button>
     </form>
-    <div class="flex flex-col gap-2">
-      <h1 class="font-bold text-lg">{title}</h1>
+    <div class="flex flex-col gap-2" class:items-center={centered}>
+      <h1 class="font-bold text-lg self-start">{title}</h1>
       <slot></slot>
     </div>
   </div>

@@ -15,6 +15,11 @@
 
   import { db } from "$lib/db";
 
+  import { dailyStreak } from "$lib/stats";
+
+  import LucideShare from "~icons/lucide/share";
+  import { liveQuery } from "dexie";
+
   interface Country {
     code: string;
     name: string;
@@ -37,7 +42,10 @@
   let guesses: number = 0;
 
   let modal: Modal;
-  let results: string = "";
+
+  let canonicalGuesses: number;
+
+  const daily = liveQuery(() => db.daily.get(ISODate));
 
   onMount(async () => {
     // Generate a random number by hashing date and using the first 3 characters as a hex number
@@ -67,6 +75,8 @@
       // Record today as win if there is not existing record
       const exists = (await db.daily.get(ISODate)) !== undefined;
       if (!exists) db.daily.put({ date: ISODate, guesses }, ISODate);
+      // Show results modal
+      modal.show();
     }
   }
 
@@ -79,19 +89,19 @@
   }
 
   function copyResults() {
-    db.daily.get(ISODate).then((value) => {
-      const canonicalGuesses = value?.guesses || guesses;
-      const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", canonicalGuesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
-      navigator.clipboard
-        .writeText(resultString)
-        .then(() => {
-          toast.success("Copied results to clipboard");
-        })
-        .catch(() => {
-          results = resultString;
-          modal.show();
-        });
-    });
+    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", $daily?.guesses || guesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
+    navigator.clipboard
+      .writeText(resultString)
+      .then(() => {
+        toast.success("Copied results to clipboard");
+      })
+      .catch(() => {
+        toast.error("Failed to copy to results clipboard");
+      });
+  }
+
+  function showResults() {
+    modal.show();
   }
 </script>
 
@@ -99,10 +109,15 @@
 {#if !isGameOver}
   <GameInput on:submit={addGuess}></GameInput>
 {:else}
-  <button class="btn self-center" on:click={copyResults}>Share Results</button>
+  <button class="btn self-center" on:click={showResults}>Results</button>
 {/if}
 <GameFeed {items}></GameFeed>
 
-<Modal title="Results" bind:this={modal}>
-  <p>{results}</p>
+<Modal title="Results" bind:this={modal} centered>
+  <p>You solved today's <b>Flaggle #{dailyNumber}</b> in</p>
+  <p class="text-5xl font-bold mb-2">{pluralize("guess", $daily?.guesses || guesses, true)}</p>
+  <div class="flex gap-2">
+    <button class="btn btn-circle" on:click={copyResults}><LucideShare></LucideShare></button>
+  </div>
+  <p>You now have a <b>{$dailyStreak} day</b> streak!</p>
 </Modal>
