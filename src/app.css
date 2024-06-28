@@ -21,6 +21,7 @@ main {
 
 html {
   font-family: "Figtree Variable", sans-serif;
+  scrollbar-gutter: auto !important;
 }
 
 div.toaster > div.wrapper > div {
