@@ -40,7 +40,7 @@
           value = checkbox.checked ? "true" : "false";
         }}
       />
-      <span class="label-text text-neutral-content"><slot></slot></span>
+      <span class="label-text text-neutral-content mt-0.5"><slot></slot></span>
     </label>
   {:else if type === "select"}
     <label class="label cursor-pointer flex-col items-start justify-normal gap-2 p-1">

@@ -27,6 +27,14 @@
 <SettingsField type="select" title="Theme" options={themes} bind:value={$settings.theme}>
   Select a theme
 </SettingsField>
+<SettingsField
+  type="checkbox"
+  title="Dark Background"
+  options={themes}
+  bind:value={$settings.diffDarkBg}
+>
+  Use a dark background behind the "difference" panel regardless of theme
+</SettingsField>
 <a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl"
   ><BiGithub></BiGithub></a
 >

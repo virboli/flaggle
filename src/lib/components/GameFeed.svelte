@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { settings } from "$lib/settings";
+
   interface Country {
     code: string;
     name: string;
@@ -32,6 +34,7 @@
           src={guess.diff}
           alt="{guess.name} diff"
           class="bg-base-100/50 h-full aspect-[3/2] ml-2"
+          class:bg-[#1a1a1a]={$settings.diffDarkBg === "true"}
         />
       {/if}
     </div>
