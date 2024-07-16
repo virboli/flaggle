@@ -6,6 +6,8 @@
   import SettingsField from "./SettingsField.svelte";
   import Confirm from "$lib/components/Confirm.svelte";
 
+  import BiGithub from "~icons/bi/github";
+
   let confirm: Confirm;
 
   interface Option {
@@ -25,5 +27,9 @@
 <SettingsField type="select" title="Theme" options={themes} bind:value={$settings.theme}>
   Select a theme
 </SettingsField>
+<a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl"
+  ><BiGithub></BiGithub></a
+>
 <p class="text-center">{version}</p>
+
 <Confirm bind:this={confirm}></Confirm>

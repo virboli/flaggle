@@ -31,7 +31,7 @@
 <div class="rounded-box p-2 bg-base-200">
   <h2 class="font-bold mx-1">{title}</h2>
   {#if type === "checkbox"}
-    <label class="label cursor-pointer items-start justify-normal gap-2">
+    <label class="label cursor-pointer items-start justify-normal gap-2 p-1">
       <input
         type="checkbox"
         class="checkbox"
@@ -43,7 +43,7 @@
       <span class="label-text text-neutral-content"><slot></slot></span>
     </label>
   {:else if type === "select"}
-    <label class="label cursor-pointer flex-col items-start justify-normal gap-2">
+    <label class="label cursor-pointer flex-col items-start justify-normal gap-2 p-1">
       <span class="label-text text-neutral-content"><slot></slot></span>
       <select class="select select-sm w-full max-w-xs" bind:value>
         {#each options as option}
@@ -52,7 +52,7 @@
       </select>
     </label>
   {:else if type === "text"}
-    <label class="label cursor-pointer flex-col items-start justify-normal gap-2">
+    <label class="label cursor-pointer flex-col items-start justify-normal gap-2 p-1">
       <span class="label-text text-neutral-content"><slot></slot></span>
       <div class="flex flex-row gap-2">
         <input
@@ -73,7 +73,7 @@
       </div>
     </label>
   {:else if type === "button"}
-    <div class="label flex-col items-start justify-normal gap-2">
+    <div class="label flex-col items-start justify-normal gap-2 p-1">
       <span class="label-text text-neutral-content"><slot></slot></span>
       <button class="btn btn-sm btn-neutral shadow-none" on:click>{text}</button>
     </div>
