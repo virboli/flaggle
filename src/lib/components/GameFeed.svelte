@@ -33,8 +33,9 @@
         <img
           src={guess.diff}
           alt="{guess.name} diff"
-          class="bg-base-100/50 h-full aspect-[3/2] ml-2"
-          class:bg-[#1a1a1a]={$settings.diffDarkBg === "true"}
+          class="{$settings.diffDarkBg === 'true'
+            ? 'bg-[#1a1a1a]'
+            : 'bg-base-100/50'} h-full aspect-[3/2] ml-2"
         />
       {/if}
     </div>
