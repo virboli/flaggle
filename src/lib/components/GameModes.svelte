@@ -11,7 +11,7 @@
 
   const gameModes: GameMode[] = [
     { name: "Daily", path: "daily" },
-    { name: "Classic", path: "" },
+    { name: "Classic", path: "classic" },
     { name: "Lightning", path: "lightning" },
   ];
 </script>
