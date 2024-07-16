@@ -43,8 +43,6 @@
 
   let modal: Modal;
 
-  let canonicalGuesses: number;
-
   const daily = liveQuery(() => db.daily.get(ISODate));
 
   onMount(async () => {
@@ -56,6 +54,19 @@
     const rnd = Number("0x" + hash.slice(0, 3)) / 16 ** 3;
     const index = Math.floor(rnd * data.length);
     target = data[index];
+
+    // Fill previously guessed items
+    const previouslyGuessed: Guess[] = JSON.parse(
+      localStorage.getItem("daily-prev-guessed") || "[]",
+    );
+    if (previouslyGuessed) {
+      items = previouslyGuessed;
+    }
+  });
+
+  // Show results if today has already been played
+  daily.subscribe((daily) => {
+    if (daily?.guesses) showResults();
   });
 
   async function addGuess(e: CustomEvent) {
@@ -78,6 +89,8 @@
       // Show results modal
       modal.show();
     }
+    // Store guess history
+    localStorage.setItem("daily-prev-guessed", JSON.stringify(items));
   }
 
   function checkWin(guess: Country): boolean {
@@ -105,11 +118,11 @@
   }
 </script>
 
-<p class="text-center">Daily Flaggle #{dailyNumber}</p>
-{#if !isGameOver}
-  <GameInput on:submit={addGuess}></GameInput>
-{:else}
+<p class="text-center">Flaggle #{dailyNumber}</p>
+{#if isGameOver || $daily?.guesses}
   <button class="btn self-center" on:click={showResults}>Results</button>
+{:else}
+  <GameInput on:submit={addGuess}></GameInput>
 {/if}
 <GameFeed {items}></GameFeed>
 
