@@ -65,7 +65,7 @@ Change your theme by clicking the settings button in the top right corner.
 
 Flag SVGs, country names, and ISO codes are obtained from [flagpedia.net](https://flagpedia.net/).
 
-Images with a common aspect ratio (3:2) are generated using [khui0/flaggle-flag-generator](https://github.com/khui0/flaggle-flag-generator)
+Images are processed using [khui0/flaggle-flag-generator](https://github.com/khui0/flaggle-flag-generator)
 
 ## Development
 
