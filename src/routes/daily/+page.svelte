@@ -59,7 +59,11 @@
     const previouslyGuessed: Guess[] = JSON.parse(
       localStorage.getItem("daily-prev-guessed") || "[]",
     );
-    if (previouslyGuessed) {
+    const previouslyGuessedDate = localStorage.getItem("daily-prev-guessed-date");
+    // Different day; reset
+    if (!previouslyGuessedDate || previouslyGuessedDate != ISODate) {
+      localStorage.removeItem("daily-prev-guessed");
+    } else if (previouslyGuessed) {
       items = previouslyGuessed;
     }
   });
@@ -91,6 +95,7 @@
     }
     // Store guess history
     localStorage.setItem("daily-prev-guessed", JSON.stringify(items));
+    localStorage.setItem("daily-prev-guessed-date", ISODate);
   }
 
   function checkWin(guess: Country): boolean {
