@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { lightningStreak } from "$lib/stats";
+  import Streak from "$lib/components/Streak.svelte";
+
   import GameInput from "$lib/components/GameInput.svelte";
   import LightningFeed from "$lib/components/LightningFeed.svelte";
   import Confirm from "$lib/components/Confirm.svelte";
@@ -121,11 +124,20 @@
     />
   </div>
 {/if}
-{#if !isGameOver}
-  <GameInput on:submit={addGuess}></GameInput>
-{:else}
-  <button class="btn self-center" on:click={playAgain}>Play Again</button>
-{/if}
+<div class="flex gap-2">
+  {#if $lightningStreak > 0}
+    <div class="text-xl flex items-center px-1">
+      <Streak value={$lightningStreak}></Streak>
+    </div>
+  {/if}
+  <div class="flex-1">
+    {#if !isGameOver}
+      <GameInput on:submit={addGuess}></GameInput>
+    {:else}
+      <button class="btn" on:click={playAgain}>Play Again</button>
+    {/if}
+  </div>
+</div>
 {#if answer !== ""}
   <p class="mx-auto">Answer: {answer}</p>
 {/if}

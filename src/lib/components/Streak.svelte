@@ -3,18 +3,18 @@
   export let postfix: string = "🔥";
 </script>
 
-{#if value > 0}
-  <div class="bg-base-300 px-3 self-stretch rounded-btn flex items-center">
-    <p class="font-bold">
-      {#if value >= 10}
-        <span
-          class="bg-gradient-to-b from-[#df4223] via-[#ed7150] to-[#fae070] text-transparent bg-clip-text"
-          >{value.toLocaleString()}
-        </span>
-      {:else}
-        {value.toLocaleString()}
-      {/if}
-      {postfix}
-    </p>
-  </div>
-{/if}
+<p class="font-bold">
+  <span class:fire={value >= 10}>{value.toLocaleString()} </span>
+  <span class="glow">{postfix}</span>
+</p>
+
+<style>
+  .fire {
+    @apply bg-gradient-to-b from-[#df4223] via-[#ed7150] to-[#fae070] text-transparent bg-clip-text;
+    text-shadow: 0 0 10px red;
+  }
+
+  .glow {
+    text-shadow: 0 0 10px red;
+  }
+</style>

@@ -30,7 +30,7 @@ export default {
           "neutral-content": "#cfcfcf",
           "base-100": "#181818",
           "base-200": "#222222",
-          "base-300": "#714242",
+          "base-300": "#313131",
           "base-content": "#ffffff",
         },
         light: {
