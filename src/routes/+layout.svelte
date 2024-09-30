@@ -21,7 +21,7 @@
     <LucideBarChart3></LucideBarChart3>
   </button>
 </Navigation>
-<div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto p-4">
+<div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto p-4 pb-24">
   <slot></slot>
 </div>
 <a
