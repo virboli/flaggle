@@ -3,7 +3,7 @@
   import data from "$lib/data.json";
   import { createEventDispatcher, onMount } from "svelte";
 
-  import LucideFlag from "~icons/lucide/flag";
+  import LucideArrowRight from "~icons/lucide/arrow-right";
 
   const dispatch = createEventDispatcher();
 
@@ -18,7 +18,7 @@
     name: string;
   }
 
-  let container: HTMLDivElement;
+  let container: HTMLElement;
   let input: HTMLInputElement;
 
   let query: string = "";
@@ -43,7 +43,7 @@
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key.length === 1) {
+      if (e.key.length === 1 || e.key === "Backspace") {
         input?.focus();
         focused = true;
       }
@@ -72,12 +72,15 @@
   }
 </script>
 
-<div bind:this={container} class="relative flex gap-1 bg-base-200 rounded-btn">
+<label
+  bind:this={container}
+  class="input relative flex items-center gap-1 bg-base-200 rounded-btn pr-2"
+>
   <input
     bind:value={query}
     bind:this={input}
     type="text"
-    class="input flex-1 min-w-0 bg-transparent"
+    class="flex-1 min-w-0 bg-transparent"
     placeholder="Guess a flag!"
     on:keydown={(e) => {
       if (e.key === "Enter") {
@@ -91,12 +94,12 @@
       }
     }}
   />
-  <button class="btn btn-square" on:click={submitQuery} aria-label="Guess">
-    <LucideFlag></LucideFlag>
+  <button class="btn btn-square btn-sm" on:click={submitQuery} aria-label="Guess">
+    <LucideArrowRight></LucideArrowRight>
   </button>
   {#if results.length > 0 && focused}
     <div
-      class="absolute z-10 top-[calc(100%+1rem)] w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
+      class="absolute z-10 top-[calc(100%+1rem)] left-0 w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
     >
       {#each results as country}
         <button
@@ -108,4 +111,4 @@
       {/each}
     </div>
   {/if}
-</div>
+</label>

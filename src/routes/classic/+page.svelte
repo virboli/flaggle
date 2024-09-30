@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { streak } from "$lib/stats";
+  import Streak from "$lib/components/Streak.svelte";
+
   import GameInput from "$lib/components/GameInput.svelte";
   import GameFeed from "$lib/components/GameFeed.svelte";
   import Confirm from "$lib/components/Confirm.svelte";
@@ -112,11 +115,20 @@
   }
 </script>
 
-{#if !isGameOver}
-  <GameInput on:submit={addGuess}></GameInput>
-{:else}
-  <button class="btn self-center" on:click={playAgain}>Play Again</button>
-{/if}
+<div class="flex gap-2">
+  {#if $streak > 0}
+    <div class="text-xl flex items-center px-1">
+      <Streak value={$streak}></Streak>
+    </div>
+  {/if}
+  <div class="flex-1">
+    {#if !isGameOver}
+      <GameInput on:submit={addGuess}></GameInput>
+    {:else}
+      <button class="btn" on:click={playAgain}>Play Again</button>
+    {/if}
+  </div>
+</div>
 <GameFeed {items}></GameFeed>
 {#if items.length > 0 && !isGameOver}
   <button

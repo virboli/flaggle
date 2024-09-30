@@ -123,7 +123,7 @@
   }
 </script>
 
-<p class="text-center">Flaggle #{dailyNumber}</p>
+<h1 class="text-center text-xl">Flaggle #{dailyNumber}</h1>
 {#if isGameOver || $daily?.guesses}
   <button class="btn self-center" on:click={showResults}>Results</button>
 {:else}
