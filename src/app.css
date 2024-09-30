@@ -2,32 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply scrollbar-thin scrollbar-thumb-base-300 hover:scrollbar-thumb-primary scrollbar-track-transparent;
+  }
+
+  *,
+  ::before,
+  ::after {
+    @apply border-base-300;
+    --rounded-box: 0.75rem;
+    --rounded-btn: 0.5rem;
+    --rounded-badge: 1.9rem;
+    --animation-btn: 0.25s;
+    --animation-input: 0.2s;
+    --btn-focus-scale: 0.9;
+    --border-btn: 1px;
+    --tab-border: 1px;
+    --tab-radius: 0.5rem;
+  }
+
+  html,
+  body,
+  #app,
+  main {
+    @apply h-full;
+  }
+
+  html {
+    font-family: "Figtree Variable", sans-serif;
+    scrollbar-gutter: auto !important;
+  }
+
+  input,
+  textarea {
+    @apply placeholder-base-content placeholder-opacity-50;
+  }
+
+  div.toaster > div.wrapper > div {
+    @apply bg-base-200 rounded-box text-base-content shadow-lg;
+  }
+
+  ::placeholder {
+    @apply !text-base-content/50;
+  }
+}
+
 @layer utilities {
   .btn {
     @apply shadow-none;
   }
-}
-
-* {
-  @apply scrollbar-thin scrollbar-thumb-base-300 hover:scrollbar-thumb-primary scrollbar-track-transparent;
-}
-
-html,
-body,
-#app,
-main {
-  @apply h-full;
-}
-
-html {
-  font-family: "Figtree Variable", sans-serif;
-  scrollbar-gutter: auto !important;
-}
-
-div.toaster > div.wrapper > div {
-  @apply bg-base-200 rounded-box text-base-content shadow-lg;
-}
-
-::placeholder {
-  @apply !text-base-content/50;
 }
