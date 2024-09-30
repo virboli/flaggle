@@ -1,20 +1,19 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-  import LucideCheck from "~icons/lucide/check";
-
   interface Option {
     name: string;
     value: string;
   }
 
   export let title: string;
-  export let type: "checkbox" | "select" | "text" | "button";
+  export let type: "checkbox" | "toggle" | "select" | "text" | "button" | "link";
   export let value: string = "";
   export let options: Option[] = [];
   export let maxlength: number | undefined = undefined;
   export let placeholder: string = "";
   export let text: string = "";
+  export let href: string = "";
 
   let checkbox: HTMLInputElement;
 
@@ -28,54 +27,50 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<div class="rounded-box p-2 bg-base-200">
-  <h2 class="font-bold mx-1">{title}</h2>
-  {#if type === "checkbox"}
-    <label class="label cursor-pointer items-start justify-normal gap-2 p-1">
-      <input
-        type="checkbox"
-        class="checkbox"
-        bind:this={checkbox}
-        on:input={() => {
-          value = checkbox.checked ? "true" : "false";
-        }}
-      />
-      <span class="label-text text-neutral-content mt-0.5"><slot></slot></span>
-    </label>
-  {:else if type === "select"}
-    <label class="label cursor-pointer flex-col items-start justify-normal gap-2 p-1">
-      <span class="label-text text-neutral-content"><slot></slot></span>
-      <select class="select select-sm w-full max-w-xs" bind:value>
-        {#each options as option}
-          <option value={option.value}>{option.name}</option>
-        {/each}
-      </select>
-    </label>
-  {:else if type === "text"}
-    <label class="label cursor-pointer flex-col items-start justify-normal gap-2 p-1">
-      <span class="label-text text-neutral-content"><slot></slot></span>
-      <div class="flex flex-row gap-2">
+<div class="flex flex-col gap-2">
+  <div class="rounded-box pl-4 p-2 bg-base-200">
+    <div class="flex gap-2 items-center justify-between p-1">
+      <span class="label-text text-base">{title}</span>
+      {#if type === "checkbox" || type === "toggle"}
         <input
-          type="text"
-          class="input input-sm w-full max-w-xs"
-          bind:value
-          {maxlength}
-          {placeholder}
+          type="checkbox"
+          class={type === "checkbox" ? "checkbox rounded-md" : "toggle"}
+          bind:this={checkbox}
+          on:input={() => {
+            value = checkbox.checked ? "true" : "false";
+          }}
         />
-        <button
-          class="btn btn-sm btn-square shadow-none"
-          on:click={() => {
-            dispatch("save", {
-              value,
-            });
-          }}><LucideCheck></LucideCheck></button
-        >
-      </div>
-    </label>
-  {:else if type === "button"}
-    <div class="label flex-col items-start justify-normal gap-2 p-1">
-      <span class="label-text text-neutral-content"><slot></slot></span>
-      <button class="btn btn-sm btn-neutral shadow-none" on:click>{text}</button>
+      {:else if type === "select"}
+        <select class="select select-sm w-fit" bind:value>
+          {#each options as option}
+            <option value={option.value}>{option.name}</option>
+          {/each}
+        </select>
+      {:else if type === "text"}
+        <div class="flex flex-row gap-1">
+          <input
+            type="text"
+            class="input input-sm w-full max-w-xs"
+            bind:value
+            {maxlength}
+            {placeholder}
+          />
+          <button
+            class="btn btn-sm"
+            on:click={() => {
+              dispatch("save", {
+                value,
+              });
+            }}
+            >Save
+          </button>
+        </div>
+      {:else if type === "button"}
+        <button class="btn btn-sm" on:click>{text}</button>
+      {:else if type === "link"}
+        <a class="btn btn-sm" {href}>{text}</a>
+      {/if}
     </div>
-  {/if}
+  </div>
+  <p class="mx-4 text-sm mb-4 text-base-content/50"><slot></slot></p>
 </div>

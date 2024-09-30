@@ -28,7 +28,7 @@
   Select a theme
 </SettingsField>
 <SettingsField
-  type="checkbox"
+  type="toggle"
   title="Dark Background"
   options={themes}
   bind:value={$settings.diffDarkBg}
