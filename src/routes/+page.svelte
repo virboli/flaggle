@@ -6,15 +6,15 @@
   import LucideZap from "~icons/lucide/zap";
 </script>
 
-<MainGameMode path="daily" title="Daily"
-  >Challenge yourself with a new flag each day
+<MainGameMode path="daily" title="Daily">
+  A new flag every day
   <span slot="icon"><LucideCalendarDays></LucideCalendarDays></span>
 </MainGameMode>
 <MainGameMode path="classic" title="Classic">
-  Original gameplay where you match colors and shapes
+  Match colors and shapes
   <span slot="icon"><LucideFlag></LucideFlag></span>
 </MainGameMode>
 <MainGameMode path="lightning" title="Lightning">
-  Fast-paced gameplay where you are immediately shown the flag
+  Fast-paced quick identification
   <span slot="icon"><LucideZap></LucideZap></span>
 </MainGameMode>
