@@ -38,6 +38,6 @@
 <a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl"
   ><BiGithub></BiGithub></a
 >
-<p class="text-center">{version}</p>
+<p class="text-center">Flaggle {version}</p>
 
 <Confirm bind:this={confirm}></Confirm>
