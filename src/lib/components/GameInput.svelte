@@ -43,7 +43,7 @@
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key.length === 1) {
+      if (e.key.length === 1 || e.key === "Backspace") {
         input?.focus();
         focused = true;
       }

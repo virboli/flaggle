@@ -3,7 +3,7 @@
   export let postfix: string = "🔥";
 </script>
 
-<p class="font-bold">
+<p class="font-bold whitespace-nowrap">
   <span class:fire={value >= 10} class:purple={value >= 50}>{value.toLocaleString()} </span>
   <span class="glow">{postfix}</span>
 </p>
