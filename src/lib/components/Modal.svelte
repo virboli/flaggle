@@ -11,7 +11,7 @@
   export let centered: boolean = false;
 </script>
 
-<dialog class="modal" bind:this={modal} on:close>
+<dialog class="modal backdrop:bg-transparent" bind:this={modal} on:close>
   <div class="modal-box p-4">
     <form method="dialog">
       <button class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4" aria-label="Close">
@@ -23,7 +23,7 @@
       <slot></slot>
     </div>
   </div>
-  <form method="dialog" class="modal-backdrop">
+  <form method="dialog" class="modal-backdrop bg-black/20">
     <button>close</button>
   </form>
 </dialog>
