@@ -1,7 +1,5 @@
 <script lang="ts">
   import { Toaster } from "svelte-french-toast";
-
-  import Header from "$lib/components/Header.svelte";
   import Navigation from "$lib/components/Navigation.svelte";
   import StatsModal from "$lib/components/StatsModal.svelte";
 
@@ -18,11 +16,11 @@
   />
 </svelte:head>
 
-<!-- <Header>
-  <button class="btn btn-sm btn-square" on:click={statsModal.show} aria-label="Stats">
+<Navigation>
+  <button class="btn btn-sm btn-square rounded-full" on:click={statsModal.show} aria-label="Stats">
     <LucideBarChart3></LucideBarChart3>
   </button>
-</Header> -->
+</Navigation>
 <div class="flex flex-col gap-4 w-[min(100%,800px)] mx-auto p-4">
   <slot></slot>
 </div>
@@ -32,12 +30,5 @@
 >
   kennyhui.dev
 </a>
-
-<Navigation>
-  <button class="btn btn-sm btn-square rounded-full" on:click={statsModal.show} aria-label="Stats">
-    <LucideBarChart3></LucideBarChart3>
-  </button>
-</Navigation>
-
 <Toaster toastOptions={{ position: "bottom-center" }}></Toaster>
 <StatsModal bind:this={statsModal}></StatsModal>
