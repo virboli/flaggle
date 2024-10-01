@@ -11,6 +11,7 @@
 
   import { db } from "$lib/db";
   import { onMount } from "svelte";
+  import { settings } from "$lib/settings";
 
   let confirm: Confirm;
 
@@ -82,11 +83,13 @@
   }
 
   function getRandomTarget(): Country {
-    const max = data.length;
+    const flags =
+      $settings?.duplicateFlags === "true" ? data : data.filter((item) => !item.duplicate);
+    const max = flags.length;
     const index = Math.floor(Math.random() * max);
     // Store game state
     window.localStorage.setItem("unfinished-flaggle-classic", index.toString());
-    return data[index];
+    return flags[index];
   }
 
   function playAgain() {

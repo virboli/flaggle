@@ -27,13 +27,11 @@
 <SettingsField type="select" title="Theme" options={themes} bind:value={$settings.theme}>
   Select a theme
 </SettingsField>
-<SettingsField
-  type="toggle"
-  title="Dark Background"
-  options={themes}
-  bind:value={$settings.diffDarkBg}
->
+<SettingsField type="toggle" title="Dark Background" bind:value={$settings.diffDarkBg}>
   Use a dark background behind the flag similarity regardless of theme
+</SettingsField>
+<SettingsField type="toggle" title="Allow duplicate flags" bind:value={$settings.duplicateFlags}>
+  Allow duplicate flags such as Norway, Bouvet Island, and Svalbard and Jan Mayen
 </SettingsField>
 <a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl"
   ><BiGithub></BiGithub></a
