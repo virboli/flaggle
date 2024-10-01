@@ -22,7 +22,7 @@ Your goal is to guess a random **target** flag. Start by picking a country. Once
 
 In the example, I chose Seychelles. Now I know the target flag has a red horizontal stripe on top and with a white horizontal stripe in the middle with a star in the middle.
 
-Build a streak by identifying flags and not giving up! **The streak counter will change colors at 50, 100, 250, 500, 1000!**
+Build a streak by identifying flags and not giving up! **The streak counter will change colors at 10, 50, 100, 250, 500, 1000!**
 
 ### Lightning
 
