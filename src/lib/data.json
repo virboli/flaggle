@@ -133,7 +133,8 @@
   },
   {
     "code": "bv",
-    "name": "Bouvet Island"
+    "name": "Bouvet Island",
+    "duplicate": true
   },
   {
     "code": "bw",
@@ -397,7 +398,8 @@
   },
   {
     "code": "hm",
-    "name": "Heard Island and McDonald Islands"
+    "name": "Heard Island and McDonald Islands",
+    "duplicate": true
   },
   {
     "code": "hn",
@@ -577,7 +579,8 @@
   },
   {
     "code": "mf",
-    "name": "Saint Martin"
+    "name": "Saint Martin",
+    "duplicate": true
   },
   {
     "code": "mg",
@@ -817,7 +820,8 @@
   },
   {
     "code": "sj",
-    "name": "Svalbard and Jan Mayen"
+    "name": "Svalbard and Jan Mayen",
+    "duplicate": true
   },
   {
     "code": "sk",
@@ -941,7 +945,8 @@
   },
   {
     "code": "um",
-    "name": "United States Minor Outlying Islands"
+    "name": "United States Minor Outlying Islands",
+    "duplicate": true
   },
   {
     "code": "us",
