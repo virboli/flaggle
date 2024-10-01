@@ -107,7 +107,11 @@
   }
 
   function copyResults() {
-    const resultString = `I solved today's Flaggle #${dailyNumber} in ${pluralize("guess", $daily?.guesses || guesses, true)}! Play at https://kennyhui.dev/flaggle/daily`;
+    const date = new Date().toLocaleDateString("en-US", {
+      month: "numeric",
+      day: "2-digit",
+    });
+    const resultString = `Flaggle #${dailyNumber} ${date} in ${pluralize("guess", $daily?.guesses || guesses, true)}! https://flaggle.kennyhui.dev/daily`;
     navigator.clipboard
       .writeText(resultString)
       .then(() => {
