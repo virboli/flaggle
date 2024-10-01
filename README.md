@@ -4,40 +4,35 @@
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/khui0/flaggle?color=%23366aed)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/khui0/flaggle?color=%23366aed)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/khui0/flaggle/deploy.yml?color=%23366aed)
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fkennyhui.dev%2Fflaggle%2F&color=%23366aed)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fflaggle.kennyhui.dev%2F&color=%23366aed)
 
-Play here: [kennyhui.dev/flaggle](https://kennyhui.dev/flaggle/)
+### Play here: [flaggle.kennyhui.dev](https://flaggle.kennyhui.dev/)
 
-A flag guessing game inspired by Wordle. Currently includes 255 country flags and three game modes!
+Flag guessing game inspired by Wordle. Currently includes 255 country flags!
 
 ## How to play
 
-You can choose the game mode by clicking on it in the top right corner or by using the hamburger menu on mobile.
+Choose between [Daily](#daily), [Classic](#classic), and [Lightning](#lightning)
 
 ### Classic
 
-Your goal is to guess the target flag, similar to guessing the target word in Wordle. Start by picking a country to guess. Once you make your guess, you will be given an image that shows the similarity between the flag you guessed and the target.
+Your goal is to guess a random **target** flag. Start by picking a country. Once you guess, you'll be shown similarity between your guess and the target.
 
 <img width="783" alt="image" src="https://github.com/khui0/flaggle/assets/101839505/405f8fa9-84c1-404f-a02f-fadd559f5f00">
 
-In this example, I chose Seychelles. From the image on the right, I can infer that the target flag has a red horizontal stripe on the top, with a white horizontal stripe in the middle, with a star in the middle. This information can be used to make the next guess.
+In the example, I chose Seychelles. Now I know the target flag has a red horizontal stripe on top and with a white horizontal stripe in the middle with a star in the middle.
 
-You can make as many guesses as you'd like, though using less guesses _is_ more impressive...
-
-Lastly, try to maintain a streak by not giving up! The streak counter is shown in the top left corner once you gain a streak.
-
-<img width="87" alt="image" src="https://github.com/khui0/flaggle/assets/101839505/84639369-1c32-44e1-8f66-8e2cf37dca81">
+Build a streak by identifying flags and not giving up! **The streak counter will change colors at 50, 100, 250, 500, 1000!**
 
 ### Lightning
 
-This mode is faster paced than **Classic**. The target flag is shown to you and you have six attempts to guess it. Lightning mode has its own separate streaks, which end once you are unable to guess a flag or give up.
+You're shown the target flag and you have six attempts to identify it. 
 
 <img width="802" alt="image" src="https://github.com/khui0/flaggle/assets/101839505/78de92e6-e153-4d9d-9c00-1198ee2e64d0">
 
 ### Daily
 
-This mode features the same gameplay as **Classic**, but the target flag is chosen daily, similar to Wordle. Try to guess the flag in as few attempts as possible and challenge your friends! There's no giving up...
+A new flag is given every day! Same gameplay as **Classic**. Identify the flag in as few attempts as possible and challenge your friends! You can't give up...
 
 Streaks in this mode are counted by the past consecutive days you were able to guess the target flag.
 
@@ -45,21 +40,15 @@ Streaks in this mode are counted by the past consecutive days you were able to g
 
 You can press tab to insert the first suggestion.
 
-You can search for a country using its two letter ISO code which could be a lot faster than typing out the full name.
+You can search for a country by its two letter ISO code which could be a lot faster than typing out its full name.
 
 ## Stats
 
 <img width="36" alt="image" src="https://github.com/khui0/flaggle/assets/101839505/c090f0d0-5fa5-4bc6-b0fe-12360dbea5fc">
 
-Your statistics can be viewed by clicking the stats button in the top right corner.
+View your stats by clicking on the stats button.
 
-<img width="529" alt="image" src="https://github.com/khui0/flaggle/assets/101839505/0d5095e1-8320-456b-8fd0-894cb3fff2cc">
-
-## Settings
-
-<img width="36" alt="image" src="https://github.com/khui0/flaggle/assets/101839505/aa5db1c7-1ea1-40a3-ac8c-7820ab91fe09">
-
-Change your theme by clicking the settings button in the top right corner.
+<img width="535" alt="image" src="https://github.com/user-attachments/assets/77ba1c74-bf89-452a-a13a-f559ae6f6bda">
 
 ## Sources
 
@@ -69,7 +58,7 @@ Images are processed using [khui0/flaggle-flag-generator](https://github.com/khu
 
 ## Development
 
-This app is built using Svelte and SvelteKit. Start by cloning or forking this repository.
+This app is built using SvelteKit.
 
 Install dependencies
 
