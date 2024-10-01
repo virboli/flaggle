@@ -1,9 +1,13 @@
 <script lang="ts">
+  import sound from "$lib/assets/kill.mp3";
+
   export let value: number;
   export let postfix: string = "🔥";
 
   let ready: boolean = false;
   let show: boolean = false;
+
+  const audio = new Audio(sound);
 
   $: value,
     (() => {
@@ -23,6 +27,7 @@
         setTimeout(() => {
           show = false;
         }, 2000);
+        audio.play();
       }
     })();
 
