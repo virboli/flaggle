@@ -1,10 +1,10 @@
 <script lang="ts">
-  export let path: string;
+  export let href: string;
   export let title: string;
 </script>
 
 <a
-  href="/{path}"
+  {href}
   class="flex flex-col gap-1 py-4 px-5 rounded-box bg-base-200 relative overflow-hidden group"
 >
   <h1 class="text-2xl font-bold group-hover:text-accent transition-colors z-10">{title}</h1>
