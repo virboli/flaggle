@@ -33,7 +33,7 @@
   options={themes}
   bind:value={$settings.diffDarkBg}
 >
-  Use a dark background behind the "difference" panel regardless of theme
+  Use a dark background behind the flag similarity regardless of theme
 </SettingsField>
 <a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl"
   ><BiGithub></BiGithub></a
