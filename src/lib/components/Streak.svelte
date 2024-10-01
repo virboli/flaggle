@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Howl } from "howler";
   import sound from "$lib/assets/kill.mp3";
 
   export let value: number;
@@ -7,7 +8,9 @@
   let ready: boolean = false;
   let show: boolean = false;
 
-  const audio = new Audio(sound);
+  const audio = new Howl({
+    src: sound,
+  });
 
   $: value,
     (() => {
@@ -27,6 +30,7 @@
         setTimeout(() => {
           show = false;
         }, 2000);
+        audio.stop();
         audio.play();
       }
     })();
