@@ -89,7 +89,10 @@
     const flags =
       $settings?.identicalFlags === "true" ? data : data.filter((item) => !item.duplicate);
     const max = flags.length;
-    const index = Math.floor(Math.random() * max);
+    let index;
+    do {
+      index = Math.floor(Math.random() * max);
+    } while (flags[index] === target);
     // Store game state
     window.localStorage.setItem("unfinished-flaggle-lightning", index.toString());
     return flags[index];
