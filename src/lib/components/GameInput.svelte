@@ -3,6 +3,8 @@
   import data from "$lib/data.json";
   import { createEventDispatcher, onMount } from "svelte";
 
+  import { fly } from "svelte/transition";
+
   import LucideArrowRight from "~icons/lucide/arrow-right";
 
   const dispatch = createEventDispatcher();
@@ -17,6 +19,8 @@
     code: string;
     name: string;
   }
+
+  let touch: boolean = false;
 
   let container: HTMLElement;
   let input: HTMLInputElement;
@@ -34,6 +38,8 @@
     })();
 
   onMount(() => {
+    touch = window.matchMedia("(pointer: coarse)").matches;
+
     document.addEventListener("click", (e) => {
       if (container?.contains(e.target as Node)) {
         focused = true;
@@ -46,6 +52,13 @@
       if (e.key.length === 1 || e.key === "Backspace") {
         input?.focus();
         focused = true;
+        if (e.key.match(/[0-9]/)) {
+          e.preventDefault();
+          const index = (parseInt(e.key) + 9) % 10;
+          if (results.length > 0 && index < results.length) {
+            query = results[index].name;
+          }
+        }
       }
     });
   });
@@ -99,14 +112,25 @@
   </button>
   {#if results.length > 0 && focused}
     <div
+      in:fly={{ duration: 100, y: -10 }}
+      out:fly={{ duration: 100, y: -10 }}
       class="absolute z-10 top-[calc(100%+1rem)] left-0 w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
     >
-      {#each results as country}
+      {#each results as country, i}
         <button
-          class="text-start flex justify-between px-3 py-2 hover:bg-base-100/50"
+          class="text-start flex justify-between px-3 {touch ? 'py-4' : 'py-2'}
+            hover:bg-base-100/50 active:bg-base-100/50"
           on:click={() => {
             submitGuess(country);
-          }}>{country.name}<span class="text-base-content/50">{country.code}</span></button
+          }}
+        >
+          <span class="inline-flex gap-2">
+            {#if !touch}
+              <span class="text-base-content/50 w-3 text-center">{(i + 1) % 10}</span>
+            {/if}
+            {country.name}
+          </span>
+          <span class="text-base-content/50">{country.code}</span></button
         >
       {/each}
     </div>
