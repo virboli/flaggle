@@ -32,8 +32,10 @@
   let answer: string = "";
 
   onMount(() => {
+    const flags =
+      $settings?.identicalFlags === "true" ? data : data.filter((item) => !item.duplicate);
     const previous = parseInt(window.localStorage.getItem("unfinished-flaggle-lightning") || "");
-    target = previous ? data[previous] : getRandomTarget();
+    target = previous ? flags[previous] : getRandomTarget();
     // Play again on enter
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && isGameOver) {
