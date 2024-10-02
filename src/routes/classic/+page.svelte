@@ -84,7 +84,7 @@
 
   function getRandomTarget(): Country {
     const flags =
-      $settings?.duplicateFlags === "true" ? data : data.filter((item) => !item.duplicate);
+      $settings?.identicalFlags === "true" ? data : data.filter((item) => !item.duplicate);
     const max = flags.length;
     const index = Math.floor(Math.random() * max);
     // Store game state
