@@ -8,7 +8,7 @@
 
 ### Play here: [flaggle.kennyhui.dev](https://flaggle.kennyhui.dev/)
 
-Flag guessing game inspired by Wordle. Currently includes 254 country flags!
+Flag guessing game inspired by Wordle. Includes 254 country flags!
 
 ## How to play
 
