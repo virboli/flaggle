@@ -32,6 +32,12 @@
 
   const dailyNumber = getDeltaDay("2024-06-06") * -1 + 1;
 
+  const date = new Date().toLocaleDateString("en-US", {
+    month: "numeric",
+    day: "2-digit",
+    year: "numeric",
+  });
+
   let ISODate: string;
 
   // Game state
@@ -107,11 +113,7 @@
   }
 
   function copyResults() {
-    const date = new Date().toLocaleDateString("en-US", {
-      month: "numeric",
-      day: "2-digit",
-    });
-    const resultString = `Flaggle #${dailyNumber} ${date} in ${pluralize("guess", $daily?.guesses || guesses, true)}! https://flaggle.kennyhui.dev/daily`;
+    const resultString = `🏁 Flaggle #${dailyNumber} ${date} in ${pluralize("guess", $daily?.guesses || guesses, true)}! 👉 https://flaggle.kennyhui.dev/daily`;
     navigator.clipboard
       .writeText(resultString)
       .then(() => {
@@ -127,7 +129,9 @@
   }
 </script>
 
-<h1 class="text-center text-xl">Flaggle #{dailyNumber}</h1>
+<h1 class="text-center text-xl">
+  Flaggle #{dailyNumber} <span class="text-base-content/50">{date}</span>
+</h1>
 {#if isGameOver || $daily?.guesses}
   <button class="btn self-center" on:click={showResults}>Results</button>
 {:else}

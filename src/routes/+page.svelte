@@ -20,7 +20,7 @@
   Fast-paced quick identification
   <span slot="icon"><LucideZap></LucideZap></span>
 </MainMenuItem>
-<MainMenuItem href="https://flagpedia.net/index" title="Study">
+<MainMenuItem href="https://flagpedia.net/index" title="Reference">
   Learn your flags
   <span slot="icon"><LucideBookOpen></LucideBookOpen></span>
 </MainMenuItem>

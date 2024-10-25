@@ -25,7 +25,7 @@
   <slot></slot>
 </div>
 <a
-  class="bg-base-200 px-2 py-0.5 fixed bottom-0 left-0 m-3 rounded-md text-base-content/50 active:scale-95 transition-transform"
+  class="font-bold leading-none fixed bottom-0 left-0 m-3 opacity-50 active:scale-95 transition-transform"
   href="https://kennyhui.dev/"
 >
   kennyhui.dev
