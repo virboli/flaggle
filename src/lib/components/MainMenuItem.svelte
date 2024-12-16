@@ -1,10 +1,12 @@
 <script lang="ts">
   export let href: string;
   export let title: string;
+  export let target: string = "";
 </script>
 
 <a
   {href}
+  {target}
   class="flex flex-col gap-1 py-4 px-5 rounded-box bg-base-200 relative overflow-hidden group"
 >
   <h2

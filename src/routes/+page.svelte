@@ -8,7 +8,10 @@
   import LucideSettings from "~icons/lucide/settings";
 </script>
 
-<h1 class="font-[BigNoodleTitling] italic text-6xl">Flaggle</h1>
+<div class="flex items-center gap-3">
+  <enhanced:img src="$lib/assets/flaggle.svg" class="h-12" alt="Flaggle icon" />
+  <h1 class="font-[BigNoodleTitling] italic text-6xl">Flaggle</h1>
+</div>
 <MainMenuItem href="/daily" title="Daily">
   A new flag every day
   <span slot="icon"><LucideCalendarDays></LucideCalendarDays></span>
@@ -21,7 +24,7 @@
   Fast-paced quick identification
   <span slot="icon"><LucideZap></LucideZap></span>
 </MainMenuItem>
-<MainMenuItem href="https://flagpedia.net/index" title="Reference">
+<MainMenuItem href="https://flagpedia.net/index" target="_blank" title="Reference">
   Learn your flags
   <span slot="icon"><LucideBookOpen></LucideBookOpen></span>
 </MainMenuItem>
