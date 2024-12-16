@@ -53,3 +53,15 @@
 div.toaster > div.wrapper > div {
   @apply bg-base-200 rounded-box text-base-content shadow-lg;
 }
+
+@font-face {
+  font-family: "BigNoodleTitling";
+  font-style: normal;
+  src: url("/fonts/big_noodle_titling.ttf");
+}
+
+@font-face {
+  font-family: "BigNoodleTitling";
+  font-style: italic;
+  src: url("/fonts/big_noodle_titling_oblique.ttf");
+}
