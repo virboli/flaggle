@@ -19,7 +19,7 @@
       </button>
     </form>
     <div class="flex flex-col gap-2 mx-1" class:items-center={centered}>
-      <h1 class="font-bold text-2xl self-start">{title}</h1>
+      <h1 class="font-[BigNoodleTitling] italic font-bold text-4xl self-start">{title}</h1>
       <slot></slot>
     </div>
   </div>

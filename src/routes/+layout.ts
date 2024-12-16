@@ -2,6 +2,7 @@ export const prerender = true;
 import "../app.css";
 import "@fontsource-variable/figtree";
 import "$lib/theme";
+import "unfonts.css";
 
 import { dev } from "$app/environment";
 import { inject } from "@vercel/analytics";

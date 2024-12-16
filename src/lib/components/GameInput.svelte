@@ -93,7 +93,7 @@
     bind:value={query}
     bind:this={input}
     type="text"
-    class="flex-1 min-w-0 bg-transparent"
+    class="flex-1 min-w-0 bg-transparent font-[BigNoodleTitling] italic text-2xl"
     placeholder="Guess a flag!"
     on:keydown={(e) => {
       if (e.key === "Enter") {
@@ -114,23 +114,30 @@
     <div
       in:fly={{ duration: 100, y: -10 }}
       out:fly={{ duration: 100, y: -10 }}
-      class="absolute z-10 top-[calc(100%+1rem)] left-0 w-full bg-base-200 rounded-btn flex flex-col shadow-lg"
+      class="absolute z-10 top-[calc(100%+1rem)] left-0 w-full bg-base-200 rounded-btn flex flex-col shadow-lg overflow-hidden"
     >
       {#each results as country, i}
         <button
-          class="text-start flex justify-between px-3 {touch ? 'py-4' : 'py-2'}
+          class="text-start flex justify-between items-center px-3 {i === 0
+            ? 'bg-primary'
+            : ''} {touch ? 'py-3' : 'py-1'}
             hover:bg-base-100/50 active:bg-base-100/50"
           on:click={() => {
             submitGuess(country);
           }}
         >
-          <span class="inline-flex gap-2">
+          <span class="inline-flex gap-2 items-center">
             {#if !touch}
-              <span class="text-base-content/50 w-3 text-center">{(i + 1) % 10}</span>
+              <span
+                class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 w-3 text-center"
+                >{(i + 1) % 10}</span
+              >
             {/if}
             {country.name}
           </span>
-          <span class="text-base-content/50">{country.code}</span></button
+          <span class="font-[BigNoodleTitling] italic text-2xl text-base-content/50"
+            >{country.code}</span
+          ></button
         >
       {/each}
     </div>

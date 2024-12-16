@@ -129,11 +129,11 @@
   }
 </script>
 
-<h1 class="text-center text-xl">
+<h1 class="font-[BigNoodleTitling] italic text-center text-4xl">
   Flaggle #{dailyNumber} <span class="text-base-content/50">{date}</span>
 </h1>
 {#if isGameOver || $daily?.guesses}
-  <button class="btn self-center" on:click={showResults}>Results</button>
+  <button class="font-[BigNoodleTitling] italic text-2xl btn self-center" on:click={showResults}>Results</button>
 {:else}
   <GameInput on:submit={addGuess}></GameInput>
 {/if}
@@ -141,7 +141,7 @@
 
 <Modal title="Results" bind:this={modal} centered>
   <p>You solved today's <b>Flaggle #{dailyNumber}</b> in</p>
-  <p class="text-5xl font-bold mb-2">{pluralize("guess", $daily?.guesses || guesses, true)}</p>
+  <p class="font-[BigNoodleTitling] italic text-5xl font-bold mb-2">{pluralize("guess", $daily?.guesses || guesses, true)}</p>
   <div class="flex gap-2">
     <button class="btn btn-circle" on:click={copyResults}><LucideShare></LucideShare></button>
   </div>

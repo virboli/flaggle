@@ -12,6 +12,7 @@
   import { db } from "$lib/db";
   import { onMount } from "svelte";
   import { settings } from "$lib/settings";
+  import { fly } from "svelte/transition";
 
   let confirm: Confirm;
 
@@ -133,19 +134,26 @@
     {#if !isGameOver}
       <GameInput on:submit={addGuess}></GameInput>
     {:else}
-      <button class="btn" on:click={playAgain}>Play Again</button>
+      <p in:fly={{ duration: 500, x: -50 }} class="font-[BigNoodleTitling] italic text-4xl">
+        {target.name}
+      </p>
     {/if}
   </div>
 </div>
 <GameFeed {items}></GameFeed>
 {#if items.length > 0 && !isGameOver}
   <button
-    class="btn self-center"
+    class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 hover:text-error transition-colors btn self-center"
     on:click={() => {
       confirm
         .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
         .then(giveUp);
     }}>Give Up</button
+  >
+{:else}
+  <button
+    class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 btn self-center"
+    on:click={playAgain}>Play Again</button
   >
 {/if}
 <Confirm bind:this={confirm}></Confirm>

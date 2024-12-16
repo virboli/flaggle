@@ -8,6 +8,7 @@
   import LucideSettings from "~icons/lucide/settings";
 </script>
 
+<h1 class="font-[BigNoodleTitling] italic text-6xl">Flaggle</h1>
 <MainMenuItem href="/daily" title="Daily">
   A new flag every day
   <span slot="icon"><LucideCalendarDays></LucideCalendarDays></span>

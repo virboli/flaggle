@@ -16,7 +16,7 @@
   <nav
     in:fly={{ y: 100 }}
     out:fly={{ y: 100 }}
-    class="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 mb-3 bg-base-200 p-2 rounded-full flex gap-1 shadow-lg"
+    class="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 mb-3 bg-base-200 p-2 rounded-full flex gap-3 shadow-lg"
   >
     <a href="/" class="btn btn-sm btn-square rounded-full" aria-label="Settings">
       <LucideUndo2></LucideUndo2>
@@ -25,8 +25,8 @@
       {@const active = $page.url.pathname === "/" + mode.path}
       <a
         href="/{mode.path}"
-        class="btn btn-sm rounded-full {active
-          ? 'bg-accent hover:bg-accent text-accent-content'
+        class="font-[BigNoodleTitling] italic text-2xl hover:scale-105 transition-transform {active
+          ? 'text-accent'
           : ''}"
       >
         {mode.name}

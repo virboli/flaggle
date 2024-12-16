@@ -11,6 +11,7 @@
   import { db } from "$lib/db";
   import { onMount } from "svelte";
   import { settings } from "$lib/settings";
+  import { fly } from "svelte/transition";
 
   let confirm: Confirm;
 
@@ -138,13 +139,15 @@
       <Streak value={$lightningStreak}></Streak>
     </div>
   {/if}
-  <div class="flex-1">
-    {#if !isGameOver}
+  {#if !isGameOver}
+    <div class="flex-1">
       <GameInput on:submit={addGuess}></GameInput>
-    {:else}
-      <button class="btn" on:click={playAgain}>Play Again</button>
-    {/if}
-  </div>
+    </div>
+  {:else}
+    <p in:fly={{ duration: 500, x: -50 }} class="font-[BigNoodleTitling] italic text-4xl">
+      {target.name}
+    </p>
+  {/if}
 </div>
 {#if answer !== ""}
   <p class="mx-auto">Answer: {answer}</p>
@@ -152,12 +155,16 @@
 <LightningFeed {items}></LightningFeed>
 {#if !isGameOver}
   <button
-    class="btn self-center"
+    class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 hover:text-error transition-colors btn self-center"
     on:click={() => {
       confirm
         .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")
         .then(giveUp);
     }}>Give Up</button
   >
+{:else}
+  <button class="font-[BigNoodleTitling] italic text-2xl btn self-center" on:click={playAgain}>
+    Play Again
+  </button>
 {/if}
 <Confirm bind:this={confirm}></Confirm>

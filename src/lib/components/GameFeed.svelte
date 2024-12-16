@@ -17,10 +17,14 @@
 <div class="flex flex-col gap-4 overflow-auto">
   {#each items as guess, i}
     <div
-      class="relative flex h-[20vw] min-h-20 max-h-48 bg-base-200/50 items-end rounded-box rounded-r-none"
+      class="relative flex h-[20vw] min-h-20 max-h-48 bg-base-200/50 items-end rounded-box rounded-r-none {guess.win
+        ? 'bg-gradient-to-r from-accent via-base-200 to-base-200'
+        : ''}"
     >
       <p class="absolute top-0 left-0 m-4 text-5xl">
-        <span class="text-base-content/25">{guess.diff ? items.length - i : "Answer"}</span>
+        <span class="font-[BigNoodleTitling] italic text-base-content/25"
+          >{guess.diff ? items.length - i : "Answer"}</span
+        >
         {guess.win ? " 👑" : ""}
       </p>
       <p class="m-4">{guess.name}</p>
