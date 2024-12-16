@@ -150,7 +150,7 @@
         .then(giveUp);
     }}>Give Up</button
   >
-{:else}
+{:else if isGameOver}
   <button
     class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 btn self-center"
     on:click={playAgain}>Play Again</button
