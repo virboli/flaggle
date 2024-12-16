@@ -27,7 +27,7 @@
         >
         {guess.win ? " 👑" : ""}
       </p>
-      <p class="m-4">{guess.name}</p>
+      <p class="mx-4 my-3 font-[BigNoodleTitling] italic text-2xl">{guess.name}</p>
       <img
         src="./flags/{guess.code}.png"
         alt={guess.name}
