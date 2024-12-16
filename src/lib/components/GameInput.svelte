@@ -2,6 +2,7 @@
   import Fuse from "fuse.js";
   import data from "$lib/data.json";
   import { createEventDispatcher, onMount } from "svelte";
+  import { settings } from "$lib/settings";
 
   import { fly } from "svelte/transition";
 
@@ -29,6 +30,8 @@
   let results: Country[] = [];
   let focused: boolean = false;
 
+  let selected: number = 0;
+
   $: query,
     (() => {
       results = fuse
@@ -48,7 +51,7 @@
       }
     });
 
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", (e: KeyboardEvent) => {
       if (e.key.length === 1 || e.key === "Backspace") {
         input?.focus();
         focused = true;
@@ -56,7 +59,17 @@
           e.preventDefault();
           const index = (parseInt(e.key) + 9) % 10;
           if (results.length > 0 && index < results.length) {
-            query = results[index].name;
+            selected = index;
+          }
+        } else {
+          selected = 0;
+        }
+      } else {
+        if (results.length > 0 && focused) {
+          if (e.key === "ArrowDown") {
+            highlightNext();
+          } else if (e.key === "ArrowUp") {
+            highlightPrev();
           }
         }
       }
@@ -64,15 +77,35 @@
   });
 
   function submitQuery() {
-    const country = data.find((country) => country.name.toLowerCase() === query.toLowerCase());
+    dispatch("enterkey");
+    if (!results[selected]) return;
+    const country = data.find(
+      (country) => country.name.toLowerCase() === results[selected].name.toLowerCase(),
+    );
     if (country) {
       submitGuess(country);
     }
-    dispatch("enterkey");
   }
 
-  function fillFirstResult() {
-    query = results[0].name;
+  function highlightNext() {
+    const MAX = results.length - 1;
+    selected++;
+    if (selected > MAX) {
+      selected = 0;
+    }
+  }
+
+  function highlightPrev() {
+    const MAX = results.length - 1;
+    selected--;
+    if (selected < 0) {
+      selected = MAX;
+    }
+  }
+
+  function fillResult() {
+    query = results[selected].name;
+    selected = clamp(selected, 0, results.length);
   }
 
   function submitGuess(country: Country) {
@@ -82,6 +115,11 @@
 
   function resetInput() {
     query = "";
+    selected = 0;
+  }
+
+  function clamp(number: number, max: number, min: number) {
+    return Math.min(Math.max(number, min), max);
   }
 </script>
 
@@ -100,9 +138,17 @@
         e.preventDefault();
         submitQuery();
       } else if (e.key === "Tab") {
-        if (results.length > 0) {
-          e.preventDefault();
-          fillFirstResult();
+        e.preventDefault();
+        if ($settings.legacyTab === "true") {
+          if (results.length > 0) {
+            fillResult();
+          }
+        } else {
+          if (e.shiftKey) {
+            highlightPrev();
+          } else {
+            highlightNext();
+          }
         }
       }
     }}
@@ -118,26 +164,21 @@
     >
       {#each results as country, i}
         <button
-          class="text-start flex justify-between items-center px-3 {i === 0
+          class="font-[BigNoodleTitling] italic text-2xl text-start flex justify-between items-center px-3 {i ===
+          selected
             ? 'bg-primary'
-            : ''} {touch ? 'py-3' : 'py-1'}
-            hover:bg-base-100/50 active:bg-base-100/50"
+            : 'hover:bg-base-100/50 active:bg-base-100/50'} {touch ? 'py-3' : 'py-1'}"
           on:click={() => {
             submitGuess(country);
           }}
         >
           <span class="inline-flex gap-2 items-center">
             {#if !touch}
-              <span
-                class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 w-3 text-center"
-                >{(i + 1) % 10}</span
-              >
+              <span class="text-base-content/50 w-3 text-center">{(i + 1) % 10}</span>
             {/if}
             {country.name}
           </span>
-          <span class="font-[BigNoodleTitling] italic text-2xl text-base-content/50"
-            >{country.code}</span
-          ></button
+          <span class="text-base-content/50">{country.code}</span></button
         >
       {/each}
     </div>

@@ -33,9 +33,12 @@
 <SettingsField type="toggle" title="Allow identical flags" bind:value={$settings.identicalFlags}>
   Allow identical flags such as Norway, Bouvet Island, and Svalbard and Jan Mayen
 </SettingsField>
-<a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl"
-  ><BiGithub></BiGithub></a
->
+<SettingsField type="toggle" title="Legacy tab behavior" bind:value={$settings.legacyTab}>
+  When enabled, tab will insert the highlighted result instead of selecting the next one
+</SettingsField>
+<a href="https://github.com/khui0/flaggle" title="GitHub" class="self-center text-2xl">
+  <BiGithub></BiGithub>
+</a>
 <p class="text-center">Flaggle {version}</p>
 
 <Confirm bind:this={confirm}></Confirm>
