@@ -29,6 +29,6 @@
   <span slot="icon"><LucideBookOpen></LucideBookOpen></span>
 </MainMenuItem>
 <MainMenuItem href="/settings" title="Settings">
-  Change game settings
+  Manage preferences
   <span slot="icon"><LucideSettings></LucideSettings></span>
 </MainMenuItem>

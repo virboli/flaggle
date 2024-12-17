@@ -6,6 +6,8 @@
   import LucideBarChart3 from "~icons/lucide/bar-chart-3";
 
   let statsModal: StatsModal;
+
+  const version: string = import.meta.env.PACKAGE_VERSION;
 </script>
 
 <svelte:head>
@@ -25,10 +27,11 @@
   <slot></slot>
 </div>
 <a
-  class="font-bold leading-none fixed bottom-0 left-0 m-3 opacity-50 active:scale-95 transition-transform"
+  class="font-bold leading-none fixed bottom-0 left-0 m-3 opacity-30 active:scale-95 transition-transform"
   href="https://kennyhui.dev/"
 >
   kennyhui.dev
 </a>
+<p class="leading-none fixed bottom-0 right-0 m-3 opacity-30">{version}</p>
 <Toaster toastOptions={{ position: "bottom-center" }}></Toaster>
 <StatsModal bind:this={statsModal}></StatsModal>
