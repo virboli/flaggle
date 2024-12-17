@@ -52,8 +52,8 @@
   })();
 </script>
 
-<p class="font-bold whitespace-nowrap">
-  <span class="font-[BigNoodleTitling] italic text-2xl {effect}">{value.toLocaleString()} </span>
+<p class="font-bold whitespace-nowrap text-3xl">
+  <span class="font-[BigNoodleTitling] italic {effect}">{value.toLocaleString()} </span>
   <span class="glow">{postfix}</span>
 </p>
 

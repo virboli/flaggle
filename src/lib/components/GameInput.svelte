@@ -160,7 +160,7 @@
     <div
       in:fly={{ duration: 100, y: -10 }}
       out:fly={{ duration: 100, y: -10 }}
-      class="absolute z-10 top-[calc(100%+1rem)] left-0 w-full bg-base-200 rounded-btn flex flex-col shadow-lg overflow-hidden"
+      class="absolute z-10 top-[calc(100%+1rem)] left-0 w-full bg-base-200 rounded-btn flex flex-col shadow-xl overflow-hidden"
     >
       {#each results as country, i}
         <button
