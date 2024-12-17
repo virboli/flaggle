@@ -16,7 +16,7 @@
   </h2>
   <p class="text-neutral-content z-10 mr-20"><slot></slot></p>
   <div
-    class="absolute right-4 bottom-[-0.6rem] text-6xl text-neutral group-hover:text-accent transition-colors z-0"
+    class="absolute right-4 bottom-[-0.6rem] group-hover:bottom-[1rem] text-6xl text-neutral group-hover:text-accent transition-all z-0"
   >
     <slot name="icon"></slot>
   </div>
