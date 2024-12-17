@@ -14,7 +14,7 @@
 <dialog class="modal backdrop:bg-transparent" bind:this={modal} on:close>
   <div class="modal-box p-4">
     <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4" aria-label="Close">
+      <button class="btn btn-square btn-ghost text-xl absolute right-3 top-3" aria-label="Close">
         <LucideX></LucideX>
       </button>
     </form>
