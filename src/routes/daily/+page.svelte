@@ -147,7 +147,7 @@
     {pluralize("guess", $daily?.guesses || guesses, true)}
   </p>
   <div class="flex gap-2">
-    <button class="btn btn-circle" on:click={copyResults}><LucideShare></LucideShare></button>
+    <button class="btn" on:click={copyResults}><LucideShare></LucideShare> Share Results</button>
   </div>
   <p>You now have a <b>{$dailyStreak} day</b> streak!</p>
 </Modal>
