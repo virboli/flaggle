@@ -25,7 +25,7 @@
         <span class="font-[BigNoodleTitling] italic text-base-content/25"
           >{guess.diff ? items.length - i : "Answer"}</span
         >
-        {guess.win ? " 👑" : ""}
+        {guess.win ? "" : ""}
       </p>
       <p class="mx-4 my-3 font-[BigNoodleTitling] italic text-2xl">{guess.name}</p>
       <img

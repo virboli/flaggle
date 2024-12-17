@@ -166,7 +166,7 @@
         <button
           class="font-[BigNoodleTitling] italic text-2xl text-start flex justify-between items-center px-3 {i ===
           selected
-            ? 'bg-primary'
+            ? 'bg-primary text-primary-content'
             : 'hover:bg-base-100/50 active:bg-base-100/50'} {touch ? 'py-3' : 'py-1'}"
           on:click={() => {
             submitGuess(country);
@@ -174,11 +174,11 @@
         >
           <span class="inline-flex gap-2 items-center">
             {#if !touch}
-              <span class="text-base-content/50 w-3 text-center">{(i + 1) % 10}</span>
+              <span class="opacity-50 w-3 text-center">{(i + 1) % 10}</span>
             {/if}
             {country.name}
           </span>
-          <span class="text-base-content/50">{country.code}</span></button
+          <span class="opacity-50">{country.code}</span></button
         >
       {/each}
     </div>

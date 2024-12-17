@@ -42,6 +42,10 @@
   ::placeholder {
     @apply !text-base-content/50;
   }
+
+  ::selection {
+    @apply bg-primary text-primary-content;
+  }
 }
 
 @layer utilities {
