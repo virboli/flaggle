@@ -52,14 +52,14 @@
   })();
 </script>
 
-<p class="font-bold whitespace-nowrap text-3xl z-10">
+<p class="whitespace-nowrap text-3xl z-10">
   <span class="font-[BigNoodleTitling] italic {effect}">{value.toLocaleString()} </span>
   <span class="glow">{postfix}</span>
 </p>
 
 {#if show}
   <div class="fixed inset-0 z-50 pointer-events-none flex items-center justify-center">
-    <p class="big font-bold whitespace-nowrap text-8xl">
+    <p class="big whitespace-nowrap text-8xl">
       <span class="font-[BigNoodleTitling] italic {effect}">{value.toLocaleString()} </span>
       <span class="glow">{postfix}</span>
     </p>

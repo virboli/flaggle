@@ -29,7 +29,9 @@
 </script>
 
 <Modal title="Statistics" bind:this={modal}>
-  <h3 class="font-bold text-xl inline-flex gap-2 items-center"><LucideCalendarDays></LucideCalendarDays>Daily</h3>
+  <h3 class="font-bold text-xl inline-flex gap-2 items-center">
+    <LucideCalendarDays></LucideCalendarDays>Daily
+  </h3>
   <div class="grid grid-cols-2 gap-y-2 mb-4 pl-3 border-l-2">
     <h4>Current streak</h4>
     <p>{$dailyStreak}</p>

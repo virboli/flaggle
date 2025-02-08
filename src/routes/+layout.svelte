@@ -27,6 +27,8 @@
   <slot></slot>
 </div>
 <a
+  target="_blank"
+  rel="noopener noreferrer"
   class="font-bold leading-none fixed bottom-0 left-0 m-3 opacity-30 active:scale-95 transition-transform"
   href="https://kennyhui.dev/"
 >

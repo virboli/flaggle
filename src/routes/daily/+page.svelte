@@ -133,8 +133,9 @@
   Flaggle #{dailyNumber} <span class="text-base-content/50">{date}</span>
 </h1>
 {#if isGameOver || $daily?.guesses}
-  <button class="font-[BigNoodleTitling] italic text-2xl btn self-center" on:click={showResults}
-    >Results</button
+  <button
+    class="font-[BigNoodleTitling] font-normal italic text-2xl btn self-center"
+    on:click={showResults}>Results</button
   >
 {:else}
   <GameInput on:submit={addGuess}></GameInput>
@@ -143,7 +144,7 @@
 
 <Modal title="Results" bind:this={modal} centered>
   <p>You solved today's <b>Flaggle #{dailyNumber}</b> in</p>
-  <p class="font-[BigNoodleTitling] italic text-5xl font-bold mb-2">
+  <p class="font-[BigNoodleTitling] italic text-5xl mb-2">
     {pluralize("guess", $daily?.guesses || guesses, true)}
   </p>
   <div class="flex gap-2">

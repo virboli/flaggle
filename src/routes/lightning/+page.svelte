@@ -163,7 +163,10 @@
     }}>Give Up</button
   >
 {:else}
-  <button class="font-[BigNoodleTitling] italic text-2xl btn self-center" on:click={playAgain}>
+  <button
+    class="font-[BigNoodleTitling] font-normal italic text-2xl btn self-center"
+    on:click={playAgain}
+  >
     Play Again
   </button>
 {/if}

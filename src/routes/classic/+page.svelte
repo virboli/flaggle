@@ -143,7 +143,7 @@
 <GameFeed {items}></GameFeed>
 {#if items.length > 0 && !isGameOver}
   <button
-    class="font-[BigNoodleTitling] italic text-2xl text-base-content/50 hover:text-error transition-colors btn self-center"
+    class="font-[BigNoodleTitling] font-normal italic text-2xl text-base-content/50 hover:text-error transition-colors btn self-center"
     on:click={() => {
       confirm
         .prompt("Are you sure you want to give up?", "This will reset your streak!", "Give Up")

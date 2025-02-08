@@ -10,7 +10,7 @@
   class="flex flex-col gap-1 py-4 px-5 rounded-box bg-base-200 relative overflow-hidden group"
 >
   <h2
-    class="font-[BigNoodleTitling] italic text-4xl font-bold group-hover:text-accent transition-colors z-10"
+    class="font-[BigNoodleTitling] italic text-4xl group-hover:text-accent transition-colors z-10"
   >
     {title}
   </h2>
