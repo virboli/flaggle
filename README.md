@@ -8,7 +8,7 @@
 
 ### Play here: [flaggle.kennyhui.dev](https://flaggle.kennyhui.dev/)
 
-Flag guessing game inspired by Wordle. Includes 254 country flags!
+Web-based flag recognition game with fuzzy search + keyboard shortcuts.
 
 ## How to play
 
@@ -58,21 +58,21 @@ Images are processed using [khui0/flaggle-flag-generator](https://github.com/khu
 
 ## Development
 
-This app is built using SvelteKit.
-
 Install dependencies
 
 ```bash
 npm i
 ```
 
-Start local development server
+Run dev server
 
 ```bash
 npm run dev
 ```
 
-Build project; files will be built to the `dist` directory
+## Building
+
+Project will be built to `/dist`
 
 ```bash
 npm run build
