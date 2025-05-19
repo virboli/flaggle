@@ -24,8 +24,8 @@
   Fast-paced quick identification
   <span slot="icon"><LucideZap></LucideZap></span>
 </MainMenuItem>
-<MainMenuItem href="https://flagpedia.net/index" target="_blank" title="Reference">
-  Learn your flags
+<MainMenuItem href="/reference" title="Reference">
+  View all flags
   <span slot="icon"><LucideBookOpen></LucideBookOpen></span>
 </MainMenuItem>
 <MainMenuItem href="/settings" title="Settings">
