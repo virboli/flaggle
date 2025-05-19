@@ -86,16 +86,15 @@
   }
 
   function getRandomTarget(): Country {
-    const flags =
-      $settings?.identicalFlags === "true" ? data : data.filter((item) => !item.duplicate);
-    const max = flags.length;
-    let index;
-    do {
-      index = Math.floor(Math.random() * max);
-    } while (flags[index] === target);
-    // Store game state
-    window.localStorage.setItem("unfinished-flaggle-classic", index.toString());
-    return flags[index];
+  return {
+    code: "TR",
+    name: { common: "Turkey" },
+    flag: "🇹🇷",
+    region: "Asia",
+    subregion: "Western Asia",
+    borders: ["ARM", "AZE", "BGR", "GEO", "GRC", "IRN", "IRQ", "SYR"],
+    area: 783562,
+  };
   }
 
   function playAgain() {
